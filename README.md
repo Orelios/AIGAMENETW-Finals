@@ -1,3 +1,3 @@
 # AIGAMENETW-Finals
 
-Cute ang magbasa
+all hail the den cult
