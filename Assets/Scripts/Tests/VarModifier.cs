@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerVarModifier : MonoBehaviour
+public class VarModifier : MonoBehaviour
 {
     [SerializeField]
     private Character p1;
