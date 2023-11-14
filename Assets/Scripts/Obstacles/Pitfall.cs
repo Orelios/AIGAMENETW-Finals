@@ -16,7 +16,7 @@ public class Pitfall : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         float killDamage = other.GetComponent<Character>().currHealth;
         other.GetComponent<Character>().TakeDamage(killDamage);
