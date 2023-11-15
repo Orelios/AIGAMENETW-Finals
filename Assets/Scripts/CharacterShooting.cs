@@ -53,7 +53,8 @@ public class CharacterShooting : MonoBehaviour
                 //Reset the time
                 elapsedTime = 0.0f;
 
-                Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                //Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                ObjectPoolManager.SpawnObject(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation, ObjectPoolManager.PoolType.Bullets);
             }
         }
     }

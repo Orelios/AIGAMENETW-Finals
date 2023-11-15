@@ -8,9 +8,11 @@ public class Bullet : MonoBehaviour
     public float LifeTime = 3.0f;
     public int damage = 1;
 
+    private Coroutine _returnToPoolTimerCoroutine;
+
     void Start()
     {
-        Destroy(gameObject, LifeTime);
+        //Destroy(gameObject, LifeTime);
     }
 
     void Update()
@@ -19,9 +21,27 @@ public class Bullet : MonoBehaviour
             transform.forward * Speed * Time.deltaTime;
     }
 
+    private void OnEnable()
+    {
+        _returnToPoolTimerCoroutine = StartCoroutine(ReturnToPoolAfterTime());
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         ContactPoint contact = collision.contacts[0];
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        ObjectPoolManager.ReturnObjectToPool(gameObject);
+    }
+
+    private IEnumerator ReturnToPoolAfterTime()
+    {
+        float elapsedTime = 0f;
+        while(elapsedTime < LifeTime)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        ObjectPoolManager. ReturnObjectToPool(gameObject);
     }
 }
