@@ -42,6 +42,6 @@ public class Bullet : MonoBehaviour
             yield return null;
         }
 
-        ObjectPoolManager. ReturnObjectToPool(gameObject);
+        ObjectPoolManager.ReturnObjectToPool(gameObject);
     }
 }
