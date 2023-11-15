@@ -8,13 +8,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6891448423958354252}
-  - component: {fileID: 8651013911130760221}
-  - component: {fileID: 8819412578701516404}
-  - component: {fileID: 3349157191579288592}
-  - component: {fileID: 584430055112048083}
-  - component: {fileID: 6651524645025951835}
-  - component: {fileID: 3714571502334363445}
   - component: {fileID: 5698758554967148237}
   m_Layer: 0
   m_Name: GroundCheck
@@ -106,6 +99,37 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!1 &4260528398139706002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3812906415901299268}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3812906415901299268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260528398139706002}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.36, y: -0.48433396, z: 0.38}
+  m_LocalScale: {x: 2.7932959, y: 2.4576063, z: 1.0097146}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8318350307318270715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4438430705260580575
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +161,8 @@ Transform:
   m_LocalPosition: {x: 0.009000003, y: 0.28400004, z: 0.917}
   m_LocalScale: {x: 0.358, y: 0.4069, z: 0.9903789}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3812906415901299268}
   m_Father: {fileID: 2450557897336947274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3656253699138286639
@@ -224,7 +249,7 @@ GameObject:
   - component: {fileID: 1777718654549959401}
   - component: {fileID: 8423686441896556997}
   - component: {fileID: 1231660507615392861}
-  - component: {fileID: 3755445402222747595}
+  - component: {fileID: 3714571502334363445}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -348,26 +373,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6651524645025951835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6608132212776536725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78325625f495b9e41a34af4f050c00a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
-  gravityScale: 1
-  jumpHeight: 3
-  groundCheck: {fileID: 8263962557285574645}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &3714571502334363445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,34 +387,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 0
   maxHealth: 3
---- !u!1 &8629903436422240584
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8263962557285574645}
-  m_Layer: 0
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8263962557285574645
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8629903436422240584}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6891448423958354252}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
