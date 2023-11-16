@@ -23,6 +23,9 @@ public class Character : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currHealth -= damage;
-        GetComponent<Respawn>().Teleport();
+        if (currHealth <= 0)
+        {
+            GetComponent<Respawn>().StartRespawn();
+        }
     }
 }
