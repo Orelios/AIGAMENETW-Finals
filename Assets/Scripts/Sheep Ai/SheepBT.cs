@@ -19,7 +19,11 @@ public class SheepBT : BehaviorTree.BehaviorTree
 
     [UnityEngine.Header("TaskRunAwayFromPlayers Variables")]
     //TaskRunAwayFromPlayers
-    public float runDistance = 5; 
+    public float runDistance = 5;
+
+    //DeathState variables
+    public int sheephealth = 1;
+    public UnityEngine.GameObject sheep; 
     protected override Node SetupTree()
     {
         //Node root = new TaskRoam(transform, waypoints, speed);
@@ -28,6 +32,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
 
         Node root = new Selector(new List<Node>
         {
+            new DeathState(sheephealth, sheep),
             new Sequence(new List<Node>
             {
                 new CheckPlayerInFOVRange(transform, playerLayer, FOVRange),
