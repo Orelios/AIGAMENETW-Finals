@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sheep
   - Bullet
+  - Traps
   layers:
   - Default
   - TransparentFX

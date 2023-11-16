@@ -18,8 +18,15 @@ public class Pitfall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        float killDamage = other.GetComponent<Character>().currHealth;
-        other.GetComponent<Character>().TakeDamage(killDamage);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            float killDamage = other.GetComponent<Character>().currHealth;
+            other.GetComponent<Character>().TakeDamage(killDamage);
+        }
+        if (other.gameObject.CompareTag("Sheep"))
+        {
+            SheepBT.sheephealth -= 1; 
+        }
     }
 
 }
