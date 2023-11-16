@@ -28,8 +28,9 @@ public class SheepBT : BehaviorTree.BehaviorTree
     public static int sheephealth = 1;
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Traps"))
         {
+            UnityEngine.Debug.Log("it hit"); 
             sheephealth -= 1; 
         }
     }
