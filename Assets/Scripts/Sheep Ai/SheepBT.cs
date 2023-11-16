@@ -20,10 +20,19 @@ public class SheepBT : BehaviorTree.BehaviorTree
     [UnityEngine.Header("TaskRunAwayFromPlayers Variables")]
     //TaskRunAwayFromPlayers
     public float runDistance = 5;
-
+    [UnityEngine.Header("DeathState Variables")]
     //DeathState variables
-    public int sheephealth = 1;
-    public UnityEngine.GameObject sheep; 
+    public UnityEngine.GameObject sheep;
+    public UnityEngine.GameObject bullet;
+    //public UnityEngine.GameObject enemy;
+    public static int sheephealth = 1;
+    private void OnCollisionEnter(UnityEngine.Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            sheephealth -= 1; 
+        }
+    }
     protected override Node SetupTree()
     {
         //Node root = new TaskRoam(transform, waypoints, speed);
@@ -32,7 +41,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
 
         Node root = new Selector(new List<Node>
         {
-            new DeathState(sheephealth, sheep),
+            new DeathState(sheep),
             new Sequence(new List<Node>
             {
                 new CheckPlayerInFOVRange(transform, playerLayer, FOVRange),
@@ -43,5 +52,4 @@ public class SheepBT : BehaviorTree.BehaviorTree
                                                  
         return root; 
     }
-   
 }

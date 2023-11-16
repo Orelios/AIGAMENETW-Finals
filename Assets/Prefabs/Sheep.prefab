@@ -136,6 +136,7 @@ MonoBehaviour:
   runDistance: 5
   sheephealth: 1
   sheep: {fileID: 0}
+  bullet: {fileID: 0}
 --- !u!1 &3460045008867633924
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ GameObject:
   - component: {fileID: 2809385637577709185}
   m_Layer: 0
   m_Name: Sheep
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,6 +276,7 @@ MonoBehaviour:
   runDistance: 5
   sheephealth: 0
   sheep: {fileID: 3460045008867633924}
+  bullet: {fileID: 387467797900148890, guid: 0cbdca22e37606043ae512857cffc44e, type: 3}
 --- !u!195 &6215950730736585694
 NavMeshAgent:
   m_ObjectHideFlags: 0

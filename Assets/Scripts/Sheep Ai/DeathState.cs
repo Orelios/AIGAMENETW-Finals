@@ -5,23 +5,22 @@ using BehaviorTree;
 
 public class DeathState : Node
 {
-    private int _sheepHealth;
-    private GameObject _sheep; 
+    private GameObject _sheep;
 
-    public DeathState(int sheepHealth, GameObject sheep)
+    public DeathState(GameObject sheep)
     {
-        _sheepHealth = sheepHealth;
         _sheep = sheep; 
     }
     public override NodeState Evaluate()
     {
-        if(_sheepHealth <= 0)
+        if (SheepBT.sheephealth == 0)
         {
-            _sheep.SetActive(false); 
+            _sheep.SetActive(false);
             state = NodeState.Success;
             return state;
         }
         state = NodeState.Failure;
         return state;
     }
+
 }
