@@ -23,5 +23,6 @@ public class Character : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currHealth -= damage;
+        GetComponent<Respawn>().Teleport();
     }
 }
