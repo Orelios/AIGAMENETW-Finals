@@ -40,8 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3767211524067986393}
-  - component: {fileID: 1807484724267126638}
   - component: {fileID: 4848304571162325824}
+  - component: {fileID: 3863835258177892605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -65,20 +65,6 @@ Transform:
   - {fileID: 2450557897336947274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1807484724267126638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3091242358675073185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a1b4e1ce7ba0646bbd2f4685fd81ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 3
 --- !u!114 &4848304571162325824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +85,20 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &3863835258177892605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091242358675073185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe246d334119fe43be4a507c7071693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHealth: 3
+  maxHealth: 3
 --- !u!1 &4260528398139706002
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 1777718654549959401}
   - component: {fileID: 8423686441896556997}
   - component: {fileID: 1231660507615392861}
-  - component: {fileID: 3714571502334363445}
+  - component: {fileID: 8081449621174338543}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -373,7 +373,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3714571502334363445
+--- !u!114 &8081449621174338543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,8 +382,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8014724535637827839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe246d334119fe43be4a507c7071693, type: 3}
+  m_Script: {fileID: 11500000, guid: 7656936a1c453d24cb92f2275e9cce25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currHealth: 0
-  maxHealth: 3
+  bullet: {fileID: 387467797900148890, guid: 0cbdca22e37606043ae512857cffc44e, type: 3}
+  player: {fileID: 2450557897336947274}
+  bulletSpawnPoint: {fileID: 3812906415901299268}
+  RotSpeed: 20
