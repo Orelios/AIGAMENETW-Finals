@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.AI; 
 using BehaviorTree;
 
-public class SheepBT : Tree
+public class SheepBT : BehaviorTree.BehaviorTree
 {
     [UnityEngine.Header("TaskRoam Variables")]
     //test random roaming
