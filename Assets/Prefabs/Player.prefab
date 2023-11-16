@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 3767211524067986393}
   - component: {fileID: 4848304571162325824}
   - component: {fileID: 3863835258177892605}
+  - component: {fileID: -9152167418676140973}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -99,6 +100,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 3
   maxHealth: 3
+--- !u!114 &-9152167418676140973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091242358675073185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00484902370a9d64fb48f21b372024f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
+  isTimerRunning: 0
+  respawnDelay: 2
 --- !u!1 &4260528398139706002
 GameObject:
   m_ObjectHideFlags: 0
