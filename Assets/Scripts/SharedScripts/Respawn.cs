@@ -29,6 +29,7 @@ public class Respawn : MonoBehaviour
                 isTimerRunning = false;
                 countdown = respawnDelay;
                 Teleport();
+                GetComponent<Character>().ResetHealth();
             }
         }
     }

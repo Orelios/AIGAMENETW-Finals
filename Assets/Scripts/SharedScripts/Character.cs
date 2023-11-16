@@ -28,4 +28,9 @@ public class Character : MonoBehaviour
             GetComponent<Respawn>().StartRespawn();
         }
     }
+
+    public void ResetHealth()
+    {
+        currHealth = maxHealth;
+    }
 }
