@@ -6,6 +6,7 @@ public class CheckPlayerInFOVRange : Node
 {
     private Transform _transform;
     private LayerMask _playerLayer;
+    private LayerMask _sheepLayer; 
     private float _FOVRange; 
     public CheckPlayerInFOVRange(Transform transform, LayerMask playerLayer, float FOVRange)
     {

@@ -5,7 +5,7 @@ using BehaviorTree;
 public class SheepBT : BehaviorTree.BehaviorTree
 {
     [UnityEngine.Header("TaskRoam Variables")]
-    //test random roaming
+    // roaming
     public UnityEngine.LayerMask groundLayer; 
     public UnityEngine.LayerMask playerLayer;
     public NavMeshAgent agent;

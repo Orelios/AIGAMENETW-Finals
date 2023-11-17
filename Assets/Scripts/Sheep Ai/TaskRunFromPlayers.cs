@@ -17,19 +17,36 @@ public class TaskRunFromPlayers : Node
     }
     public override NodeState Evaluate()
     {
-        Transform target = (Transform)GetData("target"); 
-        if(Vector3.Distance(_transform.position, target.position) < _runDistance)
+        Transform target = (Transform)GetData("target");
+        if (target.CompareTag("Wolf"))
+        {
+            RunFromPlayer();
+            ClearData("target");
+            state = NodeState.Success;
+            return state;
+        }
+        else if (target.CompareTag("Player"))
+        {
+            RunFromPlayer();
+            ClearData("target");
+            state = NodeState.Success;
+            return state; 
+        }
+        ClearData("target");
+        state = NodeState.Failure;
+        return state;
+    }
+
+    private void RunFromPlayer()
+    {
+        Transform target = (Transform)GetData("target");
+        if (Vector3.Distance(_transform.position, target.position) < _runDistance)
         {
             Vector3 distanceFromPlayer = _transform.position - target.position;
             Vector3 newDirection = _transform.position + distanceFromPlayer;
 
             _agent.speed = _speed;
             _agent.SetDestination(newDirection);
-            ClearData("target");
-            state = NodeState.Running;
-            return state;
         }
-        state = NodeState.Failure;
-        return state;
     }
 }
