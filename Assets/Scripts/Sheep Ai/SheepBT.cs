@@ -23,14 +23,12 @@ public class SheepBT : BehaviorTree.BehaviorTree
     [UnityEngine.Header("DeathState Variables")]
     //DeathState variables
     public UnityEngine.GameObject sheep;
-    public UnityEngine.GameObject bullet;
     //public UnityEngine.GameObject enemy;
     public static int sheephealth = 1;
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            UnityEngine.Debug.Log("it hit"); 
             sheephealth -= 1; 
         }
     }
