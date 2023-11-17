@@ -9,19 +9,21 @@ public class Gate : MonoBehaviour
     //public float closedRotation = 1.0f; 
     public bool isOpening = false;
     public bool isClosing = false;
+    private bool isOpen = false;
+    private bool isClosed = false;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isClosed = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 currentRotation = transform.localEulerAngles;
-        if (isOpening)
+        if (isOpening == true && isClosing == false)
         {
             if (currentRotation.y < openRotation)
             {
@@ -31,9 +33,11 @@ public class Gate : MonoBehaviour
             else
             {
                 isOpening = false;
+                isOpen = true;
+                isClosed = false;
             }
         }
-        if (isClosing)
+        if (isClosing == true && isOpening == false)
         {
             if (currentRotation.y > 1.0f) //set to 1 because if rotation becomes negative, no longer works
             {
@@ -43,6 +47,8 @@ public class Gate : MonoBehaviour
             else
             {
                 isClosing = false;
+                isClosed = true;
+                isOpen = false;
             }
         }
     }
@@ -55,5 +61,15 @@ public class Gate : MonoBehaviour
     public void CloseGate()
     {
         isClosing = true;
+    }
+
+    public bool GetIsOpen()
+    {
+        return isOpen;
+    }
+
+    public bool GetIsClosed()
+    {
+        return isClosed;
     }
 }
