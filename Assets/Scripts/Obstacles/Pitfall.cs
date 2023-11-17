@@ -27,6 +27,10 @@ public class Pitfall : MonoBehaviour
         {
             SheepBT.sheephealth -= 1; 
         }
+        if (other.gameObject.CompareTag("Wolf"))
+        {
+            WolfBT.wolfHealth -= WolfBT.wolfHealth; 
+        }
     }
 
 }
