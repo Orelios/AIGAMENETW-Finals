@@ -32,7 +32,6 @@ public class Bullet : MonoBehaviour
         //Destroy(gameObject);
         ObjectPoolManager.ReturnObjectToPool(gameObject);
     }
-
     private IEnumerator ReturnToPoolAfterTime()
     {
         float elapsedTime = 0f;
