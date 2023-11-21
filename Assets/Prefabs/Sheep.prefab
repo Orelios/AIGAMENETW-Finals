@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 7341244526113729400}
   - component: {fileID: 8198488264108206497}
   - component: {fileID: 7965745634677403311}
-  - component: {fileID: 4973170116855412881}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sheep (1)
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,37 +105,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4973170116855412881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2291148970492027357}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a904c1ff8179394c9ca81233f37994e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  agent: {fileID: 0}
-  speed: 2
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  roamToWaypointDistance: 10
-  FOVRange: 5
-  runDistance: 5
-  sheephealth: 1
-  sheep: {fileID: 0}
-  bullet: {fileID: 0}
 --- !u!1 &3460045008867633924
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +120,7 @@ GameObject:
   - component: {fileID: 2261320245521236522}
   - component: {fileID: 6215950730736585694}
   - component: {fileID: 2809385637577709185}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sheep
   m_TagString: Sheep
   m_Icon: {fileID: 0}
@@ -263,9 +231,9 @@ MonoBehaviour:
     m_Bits: 128
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   agent: {fileID: 6215950730736585694}
-  speed: 2
+  speed: 4.32
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -274,9 +242,7 @@ MonoBehaviour:
   roamToWaypointDistance: 10
   FOVRange: 5
   runDistance: 5
-  sheephealth: 0
   sheep: {fileID: 3460045008867633924}
-  bullet: {fileID: 387467797900148890, guid: 0cbdca22e37606043ae512857cffc44e, type: 3}
 --- !u!195 &6215950730736585694
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -325,4 +291,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
