@@ -5,8 +5,9 @@ using UnityEngine;
 public class Gate : MonoBehaviour
 {
     public float rotateSpeed = 1.0f;
-    public float openRotation = 90.0f;
-    //public float closedRotation = 1.0f; 
+    public float openRotation = 270.0f;
+    public float closedRotation = 180.0f;
+    public bool clockwise = true;
     public bool isOpening = false;
     public bool isClosing = false;
     private bool isOpen = false;
@@ -23,34 +24,69 @@ public class Gate : MonoBehaviour
     void Update()
     {
         Vector3 currentRotation = transform.localEulerAngles;
-        if (isOpening == true && isClosing == false)
+        if (clockwise == true)
         {
-            if (currentRotation.y < openRotation)
+            if (isOpening == true && isClosing == false)
             {
-                transform.Rotate(new Vector3(0f, 100f * rotateSpeed, 0f) * Time.deltaTime);
-                //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, openRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
+                if (currentRotation.y < openRotation)
+                {
+                    transform.Rotate(new Vector3(0f, 100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, openRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    isOpening = false;
+                    isOpen = true;
+                    isClosed = false;
+                }
             }
-            else
+            if (isClosing == true && isOpening == false)
             {
-                isOpening = false;
-                isOpen = true;
-                isClosed = false;
+                if (currentRotation.y > closedRotation)
+                {
+                    transform.Rotate(new Vector3(0f, -100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, closedRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    isClosing = false;
+                    isClosed = true;
+                    isOpen = false;
+                }
             }
         }
-        if (isClosing == true && isOpening == false)
+        else
         {
-            if (currentRotation.y > 1.0f) //set to 1 because if rotation becomes negative, no longer works
+            if (isOpening == true && isClosing == false)
             {
-                transform.Rotate(new Vector3(0f, -100f * rotateSpeed, 0f) * Time.deltaTime);
-                //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, closedRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
+                if (currentRotation.y > openRotation)
+                {
+                    transform.Rotate(new Vector3(0f, -100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, openRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    isOpening = false;
+                    isOpen = true;
+                    isClosed = false;
+                }
             }
-            else
+            if (isClosing == true && isOpening == false)
             {
-                isClosing = false;
-                isClosed = true;
-                isOpen = false;
+                if (currentRotation.y < closedRotation)
+                {
+                    transform.Rotate(new Vector3(0f, 100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, closedRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    isClosing = false;
+                    isClosed = true;
+                    isOpen = false;
+                }
             }
         }
+        
     }
 
     public void OpenGate()

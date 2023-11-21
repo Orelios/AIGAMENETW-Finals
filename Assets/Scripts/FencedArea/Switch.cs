@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
-    public Gate gate;
+    public Gate gatePivotLeft;
+    public Gate gatePivotRight;
     
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,15 @@ public class Switch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(gate.GetIsClosed())
+            if(gatePivotLeft.GetIsClosed()) //only checks gateLeft status
             {
-                gate.OpenGate();
+                gatePivotLeft.OpenGate();
+                gatePivotRight.OpenGate();
             }
-            if (gate.GetIsOpen())
+            if (gatePivotLeft.GetIsOpen())
             {
-                gate.CloseGate();
+                gatePivotLeft.CloseGate();
+                gatePivotRight.CloseGate();
             }
         }
     }

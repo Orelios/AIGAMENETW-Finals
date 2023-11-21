@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SwitchInterruptible : MonoBehaviour
 {
-    public GateInterruptible gate;
+    public GateInterruptible gatePivotLeft;
+    public GateInterruptible gatePivotRight;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,8 @@ public class SwitchInterruptible : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gate.isOpening = true;
+            gatePivotLeft.isOpening = true;
+            gatePivotRight.isOpening = true;
         }
     }
 
@@ -29,7 +31,8 @@ public class SwitchInterruptible : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gate.isOpening = false;
+            gatePivotLeft.isOpening = false;
+            gatePivotRight.isOpening = false;
         }
     }
 
