@@ -13,9 +13,10 @@ public class DeathStateWolf : Node
     }
     public override NodeState Evaluate()
     {
-        if (WolfBT.wolfHealth == 0)
+        if (_wolf.GetComponent<Character>().currHealth == 0)
         {
-            _wolf.SetActive(false);
+            _wolf.GetComponent<Character>().currHealth += _wolf.GetComponent<Character>().maxHealth; 
+            ObjectPoolManager.ReturnObjectToPool(_wolf);
             state = NodeState.Success;
             return state;
         }

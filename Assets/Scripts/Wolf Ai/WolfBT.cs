@@ -14,12 +14,11 @@ public class WolfBT : BehaviorTree.BehaviorTree
     public float FOVRange = 10;
     public float attackRange;
     public GameObject wolf;
-    public static int wolfHealth = 3; 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            wolfHealth -= 1;
+            gameObject.GetComponent<Character>().currHealth -= 1; 
         }
     }
     protected override Node SetupTree()

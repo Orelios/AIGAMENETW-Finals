@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2824285940032479042}
   - component: {fileID: 5035931132423832706}
   - component: {fileID: 3846986713334704977}
+  - component: {fileID: 7802141085658259950}
   - component: {fileID: 5127872939268562863}
   m_Layer: 9
   m_Name: Wolf
@@ -156,6 +157,20 @@ MonoBehaviour:
   FOVRange: 10
   attackRange: 3
   wolf: {fileID: 2526543335041981049}
+--- !u!114 &7802141085658259950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2526543335041981049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe246d334119fe43be4a507c7071693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHealth: 0
+  maxHealth: 3
 --- !u!54 &5127872939268562863
 Rigidbody:
   m_ObjectHideFlags: 0
