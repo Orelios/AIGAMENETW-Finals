@@ -656,52 +656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p1: {fileID: 0}
---- !u!1 &943553161
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 943553163}
-  - component: {fileID: 943553162}
-  m_Layer: 0
-  m_Name: WolfSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &943553162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943553161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9b8f9d81206fc45b6e57efa6b59152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wolf: {fileID: 2526543335041981049, guid: 6c64769324c91274ca17608614839e88, type: 3}
-  maxSpawnTimer: 4
---- !u!4 &943553163
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943553161}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.51, y: -2.56, z: -4.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042452927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1766,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c1339a0d1381794a908f74555194209, type: 3}
+--- !u!1001 &4598261289861100844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1512515358635541705, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_Name
+      value: WolfSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
 --- !u!1001 &5608638815878991645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2004,4 +2015,4 @@ SceneRoots:
   - {fileID: 1042452929}
   - {fileID: 179687435}
   - {fileID: 1124171853}
-  - {fileID: 943553163}
+  - {fileID: 4598261289861100844}
