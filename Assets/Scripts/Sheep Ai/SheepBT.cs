@@ -8,6 +8,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
     // roaming
     public UnityEngine.LayerMask groundLayer; 
     public UnityEngine.LayerMask playerLayer;
+    public UnityEngine.LayerMask traps;
     public NavMeshAgent agent;
     public float speed = 2.0f;
     public UnityEngine.Transform[] waypoints;
@@ -29,8 +30,13 @@ public class SheepBT : BehaviorTree.BehaviorTree
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            sheephealth -= 1; 
+            sheephealth -= 1;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        UnityEngine.Gizmos.color = UnityEngine.Color.blue;
+        UnityEngine.Gizmos.DrawSphere(transform.position + transform.forward * 2, 1);
     }
     protected override Node SetupTree()
     {
@@ -44,7 +50,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
             new Sequence(new List<Node>
             {
                 new CheckPlayerInFOVRange(transform, playerLayer, FOVRange),
-                new TaskRunFromPlayers(transform, agent, runDistance),
+                new TaskRunFromPlayers(transform, agent, runDistance, traps),
             }),
             new TaskRoam(groundLayer, playerLayer, transform, waypoints, agent, speed, roamToWaypointDistance),
         });

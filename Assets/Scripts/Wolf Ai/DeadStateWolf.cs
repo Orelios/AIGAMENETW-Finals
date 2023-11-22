@@ -6,7 +6,6 @@ using BehaviorTree;
 public class DeathStateWolf : Node
 {
     private GameObject _wolf;
-
     public DeathStateWolf(GameObject wolf)
     {
         _wolf = wolf;
@@ -15,11 +14,13 @@ public class DeathStateWolf : Node
     {
         if (_wolf.GetComponent<Character>().currHealth == 0)
         {
-            _wolf.GetComponent<Character>().currHealth += _wolf.GetComponent<Character>().maxHealth; 
+            _wolf.GetComponent<Character>().currHealth += _wolf.GetComponent<Character>().maxHealth;
+            _wolf.GetComponentInChildren<Canvas>().enabled = false;
             ObjectPoolManager.ReturnObjectToPool(_wolf);
             state = NodeState.Success;
             return state;
         }
+
         state = NodeState.Failure;
         return state;
     }

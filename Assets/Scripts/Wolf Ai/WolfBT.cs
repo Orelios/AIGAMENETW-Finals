@@ -14,10 +14,17 @@ public class WolfBT : BehaviorTree.BehaviorTree
     public float FOVRange = 10;
     public float attackRange;
     public GameObject wolf;
+    //public Camera camera; 
+
+    private void Awake()
+    {
+        gameObject.GetComponentInChildren<Canvas>().enabled = false; 
+    }
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            gameObject.GetComponentInChildren<Canvas>().enabled = true;
             gameObject.GetComponent<Character>().currHealth -= 1; 
         }
     }
