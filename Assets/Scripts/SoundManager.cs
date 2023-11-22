@@ -7,7 +7,27 @@ public class SoundManager : MonoBehaviour
 {
     public enum SFX
     {
-
+        CatDeath,
+        CatHurt,
+        CatMeow,
+        CoyoteDeath,
+        CoyoteHurt,
+        CoyoteLaugh,
+        FenceClose,
+        FenceOpen,
+        GunShoot,
+        HitSlap,
+        PitFall,
+        PitWater,
+        SheepBah,
+        SheepDeath,
+        SheepHurt,
+        SwitchClose,
+        SwitchOpen,
+        WalkMud,
+        WolfDeath,
+        WolfGrowl,
+        WolfHurt
     }
 
     public enum Music
@@ -41,16 +61,18 @@ public class SoundManager : MonoBehaviour
             sfxAudioSource = sfxGameObject.AddComponent<AudioSource>();
         }
         sfxAudioSource.clip = GetSFXClip(sfx);
+        sfxAudioSource.volume = GetSFXClipVolume(sfx);
         sfxAudioSource.Play();
     }
 
-    public static void PlayOneShotSound(SFX sfx)
+    public static void PlaySFXOneShot(SFX sfx)
     {
         if (sfxOneShotGameObject == null)
         {
             sfxOneShotGameObject = new GameObject("One Shot SFX");
             sfxOneShotAudioSource = sfxOneShotGameObject.AddComponent<AudioSource>();
         }
+        sfxOneShotAudioSource.volume = GetSFXClipVolume(sfx);
         sfxOneShotAudioSource.PlayOneShot(GetSFXClip(sfx));
     }
 
@@ -71,6 +93,7 @@ public class SoundManager : MonoBehaviour
             musicAudioSource = musicGameObject.AddComponent<AudioSource>();
         }
         musicAudioSource.clip = GetMusicAudioClip(music);
+        musicAudioSource.volume = GetMusicClipVolume(music);
         musicAudioSource.loop = true;
         musicAudioSource.Play();
     }
