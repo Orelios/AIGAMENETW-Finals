@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class CameraToFollow : MonoBehaviour
 {
-
-    public Camera cameraToFollow;
     void Update()
     {
-        transform.rotation = Quaternion.LookRotation(transform.position - cameraToFollow.transform.position);
+        transform.rotation = Quaternion.Euler(0, 0, 0); 
     }
 }
