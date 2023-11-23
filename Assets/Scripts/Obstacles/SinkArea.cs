@@ -22,8 +22,6 @@ public class SinkArea : MonoBehaviour
         {
             other.GetComponent<FallDown>().StartFalling();
             other.GetComponent<Respawn>().StartRespawn();
-            //float killDamage = other.GetComponent<Character>().currHealth;
-            //other.GetComponent<Character>().TakeDamage(killDamage);
         }
     }
 }
