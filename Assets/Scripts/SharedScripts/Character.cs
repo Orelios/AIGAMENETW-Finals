@@ -30,6 +30,11 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void TakeDamageEnemy(float damage)
+    {
+        currHealth -= damage;
+    }
+
     public void ResetHealth()
     {
         currHealth = maxHealth;
