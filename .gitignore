@@ -150,6 +150,12 @@ StyleCopReport.xml
 #But not source file with postfix. which is everything but a folder
 !*.*.meta
 
+# REWRITTEN JUST TO IGNORE THESE
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
 *.obj
 *.iobj
 *.pch
