@@ -6,8 +6,8 @@ public class Respawn : MonoBehaviour
 {
     public GameObject respawnPoint;
     public bool isTimerRunning = false;
-    public float respawnDelay = 2.0f;
-    private float countdown = 2.0f;
+    public float respawnDelay = 5.0f;
+    public float countdown = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class Respawn : MonoBehaviour
                 Teleport();
                 GetComponent<Character>().Activate();
                 GetComponent<Character>().ResetHealth();
+                GetComponent<FallDown>().StopFalling();
             }
         }
     }
