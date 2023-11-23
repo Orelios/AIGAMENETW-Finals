@@ -5,7 +5,7 @@ using UnityEngine;
 public class FallDown : MonoBehaviour
 {
     public bool isFalling = false;
-    public float fallSpeed = 1.0f;
+    public float fallSpeed = 0.001f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class FallDown : MonoBehaviour
         Vector3 currentPos = GetComponent<CharacterController>().transform.position;
         if (isFalling == true)
         {
-            currentPos += new Vector3(0, -fallSpeed, 0);
+            GetComponent<CharacterController>().transform.position = new Vector3(currentPos.x, currentPos.y - fallSpeed, currentPos.z);
         }
     }
 
