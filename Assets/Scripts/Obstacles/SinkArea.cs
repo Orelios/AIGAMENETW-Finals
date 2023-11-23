@@ -21,6 +21,9 @@ public class SinkArea : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.GetComponent<FallDown>().StartFalling();
+            other.GetComponent<Respawn>().StartRespawn();
+            //float killDamage = other.GetComponent<Character>().currHealth;
+            //other.GetComponent<Character>().TakeDamage(killDamage);
         }
     }
 }
