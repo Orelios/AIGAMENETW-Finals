@@ -18,7 +18,7 @@ public class GameTimer : MonoBehaviour
         minutes = 0;
         hours = 0;
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "Time " + hours + " : " + minutes + " : " + seconds;
+        text.text = "Time " + hours + " : " + minutes + " : " + seconds.ToString("F1");
     }
 
     // Update is called once per frame
@@ -35,6 +35,6 @@ public class GameTimer : MonoBehaviour
             minutes -= 60;
             hours += 1;
         }
-        text.text = "Time " + hours + " : " + minutes + " : " + seconds;
+        text.text = "Time " + hours + " : " + minutes + " : " + seconds.ToString("F1");
     }
 }
