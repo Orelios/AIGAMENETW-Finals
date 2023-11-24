@@ -8,22 +8,30 @@ public class Bullet : MonoBehaviour
     public float LifeTime = 3.0f;
     public int damage = 1;
 
+    private Rigidbody rb;
+
     private Coroutine _returnToPoolTimerCoroutine;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         //Destroy(gameObject, LifeTime);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.position +=
-            transform.forward * Speed * Time.deltaTime;
+        rb.velocity = transform.forward * Speed;
     }
 
     private void OnEnable()
     {
         _returnToPoolTimerCoroutine = StartCoroutine(ReturnToPoolAfterTime());
+    }
+
+    private void OnDisable()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 
     void OnCollisionEnter(Collision collision)
