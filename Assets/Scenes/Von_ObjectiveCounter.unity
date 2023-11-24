@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b93f1f2c756e654a9515c87ff507b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
 --- !u!114 &66201720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,7 +541,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063369933941164523, guid: 2ef6f94691ffa8740bdf50232a04afdb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.37
+      value: -18.52
       objectReference: {fileID: 0}
     - target: {fileID: 2063369933941164523, guid: 2ef6f94691ffa8740bdf50232a04afdb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -738,7 +737,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4331677939467938174, guid: ce21aa6671248ba469ade00d70209ef2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35872507
+      value: -10.73
       objectReference: {fileID: 0}
     - target: {fileID: 4331677939467938174, guid: ce21aa6671248ba469ade00d70209ef2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -799,7 +798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5031508492586523570, guid: 3dc092a4ca1afaa4699ecd84b70664db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7162251
+      value: -16.42
       objectReference: {fileID: 0}
     - target: {fileID: 5031508492586523570, guid: 3dc092a4ca1afaa4699ecd84b70664db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -972,6 +971,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: teleportSheep
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1068882041}
@@ -987,6 +990,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[3]
       value: 
       objectReference: {fileID: 1511279983}
+    - target: {fileID: 2291148970492027357, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3460045008867633924, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: m_Name
       value: Sheep
@@ -997,11 +1004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5368799304711202610, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.06
+      value: 12.33
       objectReference: {fileID: 0}
     - target: {fileID: 5368799304711202610, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.9472513
+      value: 8.88
       objectReference: {fileID: 0}
     - target: {fileID: 5368799304711202610, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1702,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4081091433302629797, guid: 8c1339a0d1381794a908f74555194209, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.670893
+      value: -13.25
       objectReference: {fileID: 0}
     - target: {fileID: 4081091433302629797, guid: 8c1339a0d1381794a908f74555194209, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1710,7 +1717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4081091433302629797, guid: 8c1339a0d1381794a908f74555194209, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.1114655
+      value: 4.36
       objectReference: {fileID: 0}
     - target: {fileID: 4081091433302629797, guid: 8c1339a0d1381794a908f74555194209, type: 3}
       propertyPath: m_LocalRotation.w

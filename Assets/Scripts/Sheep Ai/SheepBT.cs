@@ -26,6 +26,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
     public UnityEngine.GameObject sheep;
     //public UnityEngine.GameObject enemy;
     public static int sheephealth = 1;
+    public bool isInsideFence = false; 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))

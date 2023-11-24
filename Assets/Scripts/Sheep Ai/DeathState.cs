@@ -9,12 +9,17 @@ public class DeathState : Node
 
     public DeathState(GameObject sheep)
     {
-        _sheep = sheep; 
+        _sheep = sheep;
     }
     public override NodeState Evaluate()
     {
         if (SheepBT.sheephealth == 0)
         {
+            if(_sheep.gameObject.GetComponent<SheepBT>().isInsideFence == true)
+            {
+                Score.score -= 1;
+                _sheep.gameObject.GetComponent<SheepBT>().isInsideFence = false;
+            }
             _sheep.SetActive(false);
             state = NodeState.Success;
             return state;
