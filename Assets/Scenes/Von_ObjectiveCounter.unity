@@ -1572,6 +1572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FencedArea
       objectReference: {fileID: 0}
+    - target: {fileID: 7242281767265499271, guid: 3e6a8b2a825fa2e4caf280c335551aec, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 66201719}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
