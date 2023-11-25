@@ -122,6 +122,8 @@ MonoBehaviour:
   Speed: 5
   LifeTime: 3
   damage: 1
+  bounceLimit: 1
+  Direction: {x: 0, y: 0, z: 0}
 --- !u!54 &-5785267850108181737
 Rigidbody:
   m_ObjectHideFlags: 0
