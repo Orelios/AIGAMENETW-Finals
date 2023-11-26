@@ -18,7 +18,7 @@ public class GameTimer : MonoBehaviour
         //minutes = 0;
         //hours = 0;
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "Time " + minutes + " : " + seconds.ToString("F1");
+        text.text = ""+minutes + ":" + seconds.ToString("00"); //seconds.ToString("F1") for 1 decimal
     }
 
     // Update is called once per frame
@@ -37,6 +37,6 @@ public class GameTimer : MonoBehaviour
             hours += 1;
         }
         */
-        text.text = "Time " + minutes + " : " + seconds.ToString("F1");
+        text.text = ""+minutes + ":" + seconds.ToString("00");
     }
 }

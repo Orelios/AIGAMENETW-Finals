@@ -17,13 +17,13 @@ public class Score : MonoBehaviour
     {
         score = 0;
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "Score: ";
+        text.text = "000000";
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "Score: " + score;
+        text.text = "" + score.ToString("000000"); //always display 6 digits
     }
 
     public void AddScore(int x)
