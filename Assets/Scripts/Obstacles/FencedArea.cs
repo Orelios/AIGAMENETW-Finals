@@ -21,7 +21,7 @@ public class FencedArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Sheep"))
         {
-            score.AddScore(1);
+            score.AddScore(Score.sheepHerdedScore);
             other.gameObject.GetComponent<SheepBT>().isInsideFence = true;
         }
     }
@@ -30,7 +30,7 @@ public class FencedArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Sheep"))
         {
-            score.SubtractScore(1);
+            score.SubtractScore(Score.sheepLostSubtraction);
             other.gameObject.GetComponent<SheepBT>().isInsideFence = false;
         }
     }

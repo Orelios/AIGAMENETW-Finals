@@ -8,6 +8,9 @@ public class Score : MonoBehaviour
     TextMeshProUGUI text;
 
     public static int score = 0;
+    public static int playerDeathSubtraction = 1;
+    public static int sheepLostSubtraction = 1;
+    public static int sheepHerdedScore = 1;
 
     // Start is called before the first frame update
     void Start()
