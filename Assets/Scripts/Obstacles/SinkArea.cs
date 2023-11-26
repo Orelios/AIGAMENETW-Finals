@@ -22,7 +22,7 @@ public class SinkArea : MonoBehaviour
         {
             other.GetComponent<FallDown>().StartFalling();
             other.GetComponent<Character>().currHealth = 0;
-            Score.score -= Score.playerDeathSubtraction;
+            Score.Instance.score -= Score.Instance.playerDeathSubtraction;
             other.GetComponent<Respawn>().StartRespawn();
         }
     }

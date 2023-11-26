@@ -17,7 +17,7 @@ public class DeathState : Node
         {
             if(_sheep.gameObject.GetComponent<SheepBT>().isInsideFence == true)
             {
-                Score.score -= Score.sheepLostSubtraction;
+                Score.Instance.score -= Score.Instance.sheepLostSubtraction;
                 _sheep.gameObject.GetComponent<SheepBT>().isInsideFence = false;
             }
             _sheep.SetActive(false);

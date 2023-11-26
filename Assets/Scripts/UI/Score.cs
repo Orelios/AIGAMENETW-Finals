@@ -5,16 +5,28 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
+    public static Score Instance { get; private set; }
+
     TextMeshProUGUI text;
 
-    public static int score = 0;
-    public static int playerDeathSubtraction = 1;
-    public static int sheepLostSubtraction = 1;
-    public static int sheepHerdedScore = 1;
+    public int score = 0;
+    public int playerDeathSubtraction = 1;
+    public int sheepLostSubtraction = 1;
+    public int sheepHerdedScore = 1;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
         score = 0;
         text = GetComponent<TextMeshProUGUI>();
         text.text = "000000";

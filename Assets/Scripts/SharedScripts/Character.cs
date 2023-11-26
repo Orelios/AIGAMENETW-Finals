@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
         currHealth -= damage;
         if (currHealth <= 0)
         {
-            Score.score -= Score.playerDeathSubtraction;
+            Score.Instance.score -= Score.Instance.playerDeathSubtraction;
             GetComponent<Respawn>().StartRespawn();
             Deactivate();
         }
