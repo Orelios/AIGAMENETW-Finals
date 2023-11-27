@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 2261320245521236522}
   - component: {fileID: 6215950730736585694}
   - component: {fileID: 2809385637577709185}
+  - component: {fileID: -3241196245071930405}
   m_Layer: 10
   m_Name: Sheep
   m_TagString: Sheep
@@ -232,6 +233,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 768
+  traps:
+    serializedVersion: 2
+    m_Bits: 0
   agent: {fileID: 6215950730736585694}
   speed: 4.32
   waypoints:
@@ -243,6 +247,7 @@ MonoBehaviour:
   FOVRange: 5
   runDistance: 5
   sheep: {fileID: 3460045008867633924}
+  isInsideFence: 0
 --- !u!195 &6215950730736585694
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -292,3 +297,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &-3241196245071930405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460045008867633924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe246d334119fe43be4a507c7071693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHealth: 1
+  maxHealth: 1

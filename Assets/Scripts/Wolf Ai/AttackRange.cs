@@ -40,7 +40,8 @@ public class AttackRange : Node
             }
             if (target.CompareTag("Sheep") && Vector3.Distance(_transform.position, target.position) <= _attackRange)
             {
-                SheepBT.sheephealth -= 1;
+                target.GetComponent<Character>().currHealth -= 1;
+                //SheepBT.sheephealth -= 1;
                 ClearData("target");
                 state = NodeState.Success;
                 return state;
