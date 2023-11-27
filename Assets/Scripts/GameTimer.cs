@@ -30,7 +30,7 @@ public class GameTimer : MonoBehaviour
             seconds += 60.0f;
             minutes -= 1;
         }
-        if (seconds > 59 && seconds <= 60)
+        if (seconds > 59.0f && seconds <= 60.0f)
         {
             text.text = "" + (minutes+1) + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
         }
