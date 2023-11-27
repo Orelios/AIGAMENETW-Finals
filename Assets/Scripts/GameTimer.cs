@@ -30,13 +30,13 @@ public class GameTimer : MonoBehaviour
             seconds += 60.0f;
             minutes -= 1;
         }
-        /*
-        if (minutes >= 60)
+        if (seconds > 59 && seconds <= 60)
         {
-            minutes -= 60;
-            hours += 1;
+            text.text = "" + (minutes+1) + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
         }
-        */
-        text.text = ""+minutes + ":" + seconds.ToString("00");
+        else if (seconds <= 59.0f)
+        {
+            text.text = "" + minutes + ":" + seconds.ToString("00");
+        }
     }
 }
