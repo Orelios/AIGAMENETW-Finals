@@ -13,7 +13,7 @@ public class DeathState : Node
     }
     public override NodeState Evaluate()
     {
-        if (SheepBT.sheephealth == 0)
+        if (_sheep.GetComponent<Character>().currHealth == 0)
         {
             if(_sheep.gameObject.GetComponent<SheepBT>().isInsideFence == true) //sheep dies while inside fence
             {

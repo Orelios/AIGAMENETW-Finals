@@ -31,7 +31,8 @@ public class SheepBT : BehaviorTree.BehaviorTree
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            sheephealth -= 1;
+            gameObject.GetComponent<Character>().currHealth -= 1; 
+            //sheephealth -= 1;
         }
     }
     private void OnDrawGizmos()

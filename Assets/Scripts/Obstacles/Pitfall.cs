@@ -25,7 +25,9 @@ public class Pitfall : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Sheep"))
         {
-            SheepBT.sheephealth -= 1; 
+            float killDamage = other.GetComponent<Character>().currHealth;
+            other.GetComponent<Character>().TakeDamageEnemy(killDamage);
+            //SheepBT.sheephealth -= 1; 
         }
         if (other.gameObject.CompareTag("Wolf"))
         {
