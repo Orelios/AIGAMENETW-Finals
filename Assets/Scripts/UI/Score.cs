@@ -35,6 +35,10 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (score <= -9999)
+        {
+            score = -9999;
+        }
         text.text = "" + score.ToString("000000"); //always display 6 digits
     }
 
