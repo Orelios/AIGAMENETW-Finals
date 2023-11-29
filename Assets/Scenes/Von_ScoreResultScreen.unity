@@ -2197,6 +2197,7 @@ GameObject:
   - component: {fileID: 1928180495}
   - component: {fileID: 1928180497}
   - component: {fileID: 1928180496}
+  - component: {fileID: 1928180498}
   m_Layer: 5
   m_Name: TimeLeft
   m_TagString: Untagged
@@ -2322,6 +2323,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928180494}
   m_CullTransparentMesh: 1
+--- !u!114 &1928180498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928180494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3627cd2b42a3c43b32e36cf8e62e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1933201290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,6 +2346,7 @@ GameObject:
   - component: {fileID: 1933201291}
   - component: {fileID: 1933201293}
   - component: {fileID: 1933201292}
+  - component: {fileID: 1933201294}
   m_Layer: 5
   m_Name: FinalScore
   m_TagString: Untagged
@@ -2458,6 +2472,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933201290}
   m_CullTransparentMesh: 1
+--- !u!114 &1933201294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933201290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8faf2fe6366b648addc839d27fdab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2081846917 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3863835258177892605, guid: db4a5a203d5d4ac428b41cf7d69cfbf2, type: 3}
@@ -2882,6 +2908,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 483433028}
     m_Modifications:
+    - target: {fileID: 1618671472148751713, guid: c5e16c25aee77cc42a362f1a7fd5a2a6, type: 3}
+      propertyPath: sheepHerdedScore
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618671472148751713, guid: c5e16c25aee77cc42a362f1a7fd5a2a6, type: 3}
+      propertyPath: sheepLostSubtraction
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618671472148751713, guid: c5e16c25aee77cc42a362f1a7fd5a2a6, type: 3}
+      propertyPath: playerDeathSubtraction
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3064206711494321918, guid: c5e16c25aee77cc42a362f1a7fd5a2a6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
