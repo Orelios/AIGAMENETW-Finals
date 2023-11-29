@@ -19,6 +19,8 @@ public class CharacterControllerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    public GameObject player;
+    public GameObject bullet;
     bool isGrounded;
 
     private void Awake()
@@ -55,5 +57,28 @@ public class CharacterControllerMovement : MonoBehaviour
         velocity.y += gravity * gravityScale * Time.deltaTime;
 
         characterController.Move(velocity * Time.deltaTime);
+    }
+    private void OnCollisionEnter(UnityEngine.Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            gameObject.GetComponent<Character>().currHealth -= 1;
+            //gameObject.GetComponent<Character>().TakeDamage(1);
+            //sheephealth -= 1;
+            CheckHP();
+        }
+    }
+
+    private void CheckHP()
+    {
+        if (gameObject.GetComponent<Character>().currHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
