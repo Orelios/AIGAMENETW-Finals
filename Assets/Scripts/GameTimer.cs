@@ -5,15 +5,26 @@ using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
+    public static GameTimer Instance { get; private set; }
+
     public float seconds = 0.0f;
     public int minutes = 2;
     //public int hours = 0;
 
     TextMeshProUGUI text;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
         //seconds = 0.0f;
         //minutes = 0;
         //hours = 0;
