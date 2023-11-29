@@ -8,7 +8,7 @@ public class Tally : MonoBehaviour
 
     TextMeshProUGUI text;
 
-    void Awake()
+    void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
         text.text = "Sheep Herded | " + ObjectiveCounter.Instance.sheepHerded + " x " + Score.Instance.sheepHerdedScore + " = " + (ObjectiveCounter.Instance.sheepHerded * Score.Instance.sheepHerdedScore) + " pts<br>" +
