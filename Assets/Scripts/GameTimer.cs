@@ -43,9 +43,13 @@ public class GameTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        seconds -= Time.deltaTime;
+        if (minutes <= 0 && seconds <= 0)
+        {
+            StopGameTimer();
+        }
         if (isGameTimerRunning == true)
         {
+            seconds -= Time.deltaTime;
             if (seconds <= 0.0f)
             {
                 seconds += 60.0f;
