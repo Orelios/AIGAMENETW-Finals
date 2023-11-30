@@ -15,11 +15,9 @@ public class ResultScreenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((GameTimer.Instance.minutes == 0 && GameTimer.Instance.seconds == 0) || ObjectiveCounter.Instance.sheepLeft == 0)
+        if ((GameTimer.Instance.minutes <= 0 && GameTimer.Instance.seconds <= 0) || ObjectiveCounter.Instance.sheepLeft == 0)
         {
-            resultScreen.SetActive(true);
-            GameTimer.Instance.StopGameTimer();
-            StopAllPlayerMovement();
+            StopGame();
         }
     }
 
@@ -30,5 +28,12 @@ public class ResultScreenManager : MonoBehaviour
             player.GetComponent<CharacterController>().enabled = false;
             player.GetComponentInChildren<CharacterShooting>().enabled = false;
         }
+    }
+
+    public void StopGame()
+    {
+        resultScreen.SetActive(true);
+        GameTimer.Instance.StopGameTimer();
+        StopAllPlayerMovement();
     }
 }
