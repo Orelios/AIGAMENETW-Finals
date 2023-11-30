@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 7635813495045337811}
   - component: {fileID: 1094831968954484182}
   - component: {fileID: 497268507648761646}
+  - component: {fileID: -4124524649563878113}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -90,6 +91,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  player: {fileID: 3091242358675073185}
+  bullet: {fileID: 387467797900148890, guid: 0cbdca22e37606043ae512857cffc44e, type: 3}
 --- !u!114 &3863835258177892605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +213,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4124524649563878113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091242358675073185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4260528398139706002
 GameObject:
   m_ObjectHideFlags: 0
