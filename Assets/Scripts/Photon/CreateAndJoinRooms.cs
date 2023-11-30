@@ -14,13 +14,29 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public void CreateRoom()
     {
         string roomName = createInput.GetComponent<TMP_InputField>().text;
-        PhotonNetwork.CreateRoom(roomName);
+        if (roomName.Length > 1)
+        {
+            PhotonNetwork.CreateRoom(roomName);
+            Debug.Log("Created: " + roomName);
+        }
+        else
+        {
+            Debug.Log("Create fail: " + roomName);
+        }
     }
 
     public void JoinRoom()
     {
-        string roomName = createInput.GetComponent<TMP_InputField>().text;
-        PhotonNetwork.JoinRoom(roomName);
+        string roomName = joinInput.GetComponent<TMP_InputField>().text;
+        if(roomName.Length > 1)
+        {
+            PhotonNetwork.JoinRoom(roomName);
+            Debug.Log("Joined: " + roomName);
+        }
+        else
+        {
+            Debug.Log("join fail: " + roomName);
+        }
     }
 
     public override void OnJoinedRoom()

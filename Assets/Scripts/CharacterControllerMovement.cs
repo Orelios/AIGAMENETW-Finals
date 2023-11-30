@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CharacterControllerMovement : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class CharacterControllerMovement : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
     bool isGrounded;
+    private PhotonView view;
+
+    private void Start()
+    {
+        view = GetComponent<PhotonView>();
+    }
 
     private void Awake()
     {
@@ -30,7 +37,10 @@ public class CharacterControllerMovement : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if (view.IsMine)
+        {
+            Move();
+        }
     }
 
     private void Move()
