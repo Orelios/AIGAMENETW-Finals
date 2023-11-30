@@ -575,6 +575,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 766173358859108047, guid: 488858e1ff16a32429df6324cb5a70cf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6078598812729357201, guid: 488858e1ff16a32429df6324cb5a70cf, type: 3}
       propertyPath: m_Name
       value: Lobby Overlay
