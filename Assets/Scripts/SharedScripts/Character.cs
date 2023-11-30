@@ -25,6 +25,7 @@ public class Character : MonoBehaviour
         currHealth -= damage;
         if (currHealth <= 0)
         {
+            Debug.Log("Health is below 0!");
             Score.Instance.score -= Score.Instance.playerDeathSubtraction;
             ObjectiveCounter.Instance.playerDeathTotal += 1;
             GetComponent<Respawn>().StartRespawn();
@@ -54,6 +55,7 @@ public class Character : MonoBehaviour
 
     public void Deactivate()
     {
+        Debug.Log("Deactivate!");
         //this.gameObject.SetActive(false);
         //transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         //transform.GetChild(0).GetComponent<CharacterShooting>().enabled = false;

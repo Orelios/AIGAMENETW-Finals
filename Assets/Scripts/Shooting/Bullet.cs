@@ -45,12 +45,24 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            return;
+        }
+
         if (bounceNo >= bounceLimit)
         {
             ObjectPoolManager.ReturnObjectToPool(gameObject);
         }
 
-        Bounce(Vector3.Reflect(Direction, collision.GetContact(0).normal));
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Bounce(Vector3.Reflect(Direction, collision.GetContact(0).normal));
+        }
+        else
+        {
+            ObjectPoolManager.ReturnObjectToPool(gameObject);
+        }
     }
 
     public void Bounce(Vector3 direction)

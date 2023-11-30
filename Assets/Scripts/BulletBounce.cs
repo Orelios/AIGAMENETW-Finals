@@ -28,7 +28,19 @@ public class BulletBounce : MonoBehaviour
         bounceNo = 0;
     }
 
-    private void OnCollisionEnter(Collision collision)
+   // private void OnCollisionEnter(Collision collision)
+    //{
+       // if (collision.gameObject.CompareTag("Obstacle"))
+        //{
+          //  Bounce(collision);
+       // }
+       // else
+       // {
+         //   ObjectPoolManager.ReturnObjectToPool(gameObject);
+      //  }
+  //  }
+
+    private void Bounce(Collision collision)
     {
         if (bounceNo >= bounceLimit)
         {
@@ -40,6 +52,5 @@ public class BulletBounce : MonoBehaviour
 
         rb.velocity = direction * Mathf.Max(currentSpeed, 0);
         bounceNo++;
-
     }
 }
