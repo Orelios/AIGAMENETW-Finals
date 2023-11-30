@@ -1225,6 +1225,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dc092a4ca1afaa4699ecd84b70664db, type: 3}
+--- !u!1 &880234207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3091242358675073185, guid: db4a5a203d5d4ac428b41cf7d69cfbf2, type: 3}
+  m_PrefabInstance: {fileID: 408444988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1038014868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2494,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3863835258177892605, guid: db4a5a203d5d4ac428b41cf7d69cfbf2, type: 3}
   m_PrefabInstance: {fileID: 408444988}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 880234207}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fe246d334119fe43be4a507c7071693, type: 3}
@@ -2507,6 +2512,14 @@ PrefabInstance:
       propertyPath: resultScreen
       value: 
       objectReference: {fileID: 573860066}
+    - target: {fileID: 2821173098602986413, guid: 38cff39cf7c974940b0993ff64f19b74, type: 3}
+      propertyPath: players.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821173098602986413, guid: 38cff39cf7c974940b0993ff64f19b74, type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 880234207}
     - target: {fileID: 6868602340634259153, guid: 38cff39cf7c974940b0993ff64f19b74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 276.18628
@@ -2901,6 +2914,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521532593112303553, guid: a6c869a0c88b0db4c80c95fc188ef249, type: 3}
       propertyPath: sheepLeft
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521532593112303553, guid: a6c869a0c88b0db4c80c95fc188ef249, type: 3}
+      propertyPath: initialSheepLeft
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []

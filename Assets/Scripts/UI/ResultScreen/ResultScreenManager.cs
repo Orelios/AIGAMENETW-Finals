@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResultScreenManager : MonoBehaviour
 {
     public GameObject resultScreen;
+    public List<GameObject> players;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,17 @@ public class ResultScreenManager : MonoBehaviour
         if ((GameTimer.Instance.minutes == 0 && GameTimer.Instance.seconds == 0) || ObjectiveCounter.Instance.sheepLeft == 0)
         {
             resultScreen.SetActive(true);
+            GameTimer.Instance.StopGameTimer();
+            StopAllPlayerMovement();
+        }
+    }
+
+    public void StopAllPlayerMovement()
+    {
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<CharacterController>().enabled = false;
+            player.GetComponentInChildren<CharacterShooting>().enabled = false;
         }
     }
 }
