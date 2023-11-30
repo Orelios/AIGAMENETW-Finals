@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using Photon.Pun;
 
 public class CharacterShooting : MonoBehaviour
 {
@@ -16,16 +17,20 @@ public class CharacterShooting : MonoBehaviour
 
     protected float shootRate;
     protected float elapsedTime;
-    // Start is called before the first frame update
+    private PhotonView view;
+
     void Start()
     {
+        view = GetComponent<PhotonView>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        UpdateAim();
-        UpdateWeapon();
+        if (view.IsMine)
+        {
+            UpdateAim();
+            UpdateWeapon();
+        }
     }
 
     void UpdateAim()
