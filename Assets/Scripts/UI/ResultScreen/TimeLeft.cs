@@ -11,13 +11,13 @@ public class TimeLeft : MonoBehaviour
     {
         text = GetComponent<TextMeshProUGUI>();
         text.text = "Time Left<br>" +
-            GameTimer.Instance.minutes + ":" + GameTimer.Instance.seconds.ToString("00");
+            GameTimer.Instance.minutes.ToString("00") + ":" + GameTimer.Instance.seconds.ToString("00");
     }
 
     // Update is called once per frame
     void Update()
     {
         text.text = "Time Left<br>" +
-            GameTimer.Instance.minutes + ":" + GameTimer.Instance.seconds.ToString("00");
+            GameTimer.Instance.minutes.ToString("00") + ":" + GameTimer.Instance.seconds.ToString("00");
     }
 }

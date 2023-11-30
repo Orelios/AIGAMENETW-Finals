@@ -32,13 +32,15 @@ public class ObjectiveCounter : MonoBehaviour
         sheepLeft = initialSheepLeft;
         playerDeathTotal = initialPlayerDeathTotal;
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "" + sheepLeft + " left";
+        //text.text = "" + sheepLeft + " left";
+        text.text = "" + sheepLeft;
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "" + sheepLeft + " left";
+        //text.text = "" + sheepLeft + " left";
+        text.text = "" + sheepLeft;
     }
 
     public void RestartObjectiveCounter()

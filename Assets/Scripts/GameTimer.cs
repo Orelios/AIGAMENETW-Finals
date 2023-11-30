@@ -37,7 +37,7 @@ public class GameTimer : MonoBehaviour
         seconds = initialSeconds;
         minutes = initialMinutes;
         text = GetComponent<TextMeshProUGUI>();
-        text.text = ""+minutes + ":" + seconds.ToString("00"); //seconds.ToString("F1") for 1 decimal
+        text.text = ""+minutes.ToString("00") + ":" + seconds.ToString("00"); //seconds.ToString("F1") for 1 decimal
     }
 
     // Update is called once per frame
@@ -54,11 +54,11 @@ public class GameTimer : MonoBehaviour
                 }
                 else if (seconds > 59.0f && seconds <= 60.0f)
                 {
-                    text.text = "" + (minutes + 1) + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
+                    text.text = "" + (minutes + 1).ToString("00") + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
                 }
                 else if (seconds <= 59.0f)
                 {
-                    text.text = "" + minutes + ":" + seconds.ToString("00");
+                    text.text = "" + minutes.ToString("00") + ":" + seconds.ToString("00");
                 }
             }
             else if (minutes > 0)
@@ -70,11 +70,11 @@ public class GameTimer : MonoBehaviour
                 }
                 if (seconds > 59.0f && seconds <= 60.0f)
                 {
-                    text.text = "" + (minutes + 1) + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
+                    text.text = "" + (minutes + 1).ToString("00") + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
                 }
                 else if (seconds <= 59.0f)
                 {
-                    text.text = "" + minutes + ":" + seconds.ToString("00");
+                    text.text = "" + minutes.ToString("00") + ":" + seconds.ToString("00");
                 }
             }
         }
