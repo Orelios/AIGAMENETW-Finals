@@ -43,25 +43,39 @@ public class GameTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (minutes <= 0 && seconds <= 0)
-        {
-            StopGameTimer();
-        }
         if (isGameTimerRunning == true)
         {
             seconds -= Time.deltaTime;
-            if (seconds <= 0.0f)
+            if (minutes <= 0)
             {
-                seconds += 60.0f;
-                minutes -= 1;
+                if (seconds <= 0)
+                {
+                    StopGameTimer();
+                }
+                else if (seconds > 59.0f && seconds <= 60.0f)
+                {
+                    text.text = "" + (minutes + 1) + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
+                }
+                else if (seconds <= 59.0f)
+                {
+                    text.text = "" + minutes + ":" + seconds.ToString("00");
+                }
             }
-            if (seconds > 59.0f && seconds <= 60.0f)
+            else if (minutes > 0)
             {
-                text.text = "" + (minutes + 1) + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
-            }
-            else if (seconds <= 59.0f)
-            {
-                text.text = "" + minutes + ":" + seconds.ToString("00");
+                if (seconds <= 0.0f)
+                {
+                    seconds += 60.0f;
+                    minutes -= 1;
+                }
+                if (seconds > 59.0f && seconds <= 60.0f)
+                {
+                    text.text = "" + (minutes + 1) + ":" + "00"; //when seconds is 60, display as 0 and minutes+1
+                }
+                else if (seconds <= 59.0f)
+                {
+                    text.text = "" + minutes + ":" + seconds.ToString("00");
+                }
             }
         }
     }
