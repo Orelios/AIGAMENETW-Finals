@@ -12,6 +12,9 @@ public class ObjectiveCounter : MonoBehaviour
     public int sheepHerded = 0;
     public int sheepLeft;
     public int playerDeathTotal = 0;
+    [SerializeField] private int initialSheepHerded = 0;
+    [SerializeField] private int initialSheepLeft;
+    [SerializeField] private int initialPlayerDeathTotal = 0;
 
     void Awake()
     {
@@ -25,6 +28,9 @@ public class ObjectiveCounter : MonoBehaviour
         {
             Instance = this;
         }
+        sheepHerded = initialSheepHerded;
+        sheepLeft = initialSheepLeft;
+        playerDeathTotal = initialPlayerDeathTotal;
         text = GetComponent<TextMeshProUGUI>();
         text.text = "" + sheepLeft + " left";
     }
@@ -33,5 +39,12 @@ public class ObjectiveCounter : MonoBehaviour
     void Update()
     {
         text.text = "" + sheepLeft + " left";
+    }
+
+    public void RestartObjectiveCounter()
+    {
+        sheepHerded = initialSheepHerded;
+        sheepLeft = initialSheepLeft;
+        playerDeathTotal = initialPlayerDeathTotal;
     }
 }
