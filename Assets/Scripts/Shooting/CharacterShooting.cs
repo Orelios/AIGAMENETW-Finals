@@ -21,7 +21,7 @@ public class CharacterShooting : MonoBehaviour
 
     void Start()
     {
-        view = player.parent.gameObject.GetComponent<PhotonView>();
+        view = GetComponent<PhotonView>();
     }
 
     void Update()
