@@ -29,7 +29,7 @@ public class Score : MonoBehaviour
         }
         score = 0;
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "000000";
+        text.text = "00000";
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class Score : MonoBehaviour
         {
             score = -9999;
         }
-        text.text = "" + score.ToString("000000"); //always display 6 digits
+        text.text = "" + score.ToString("00000"); //always display 6 digits
     }
 
     public void AddScore(int x)
