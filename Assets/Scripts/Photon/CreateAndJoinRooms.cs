@@ -13,12 +13,14 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(createInput.GetComponent<TMP_InputField>().text);
+        string roomName = createInput.GetComponent<TMP_InputField>().text;
+        PhotonNetwork.CreateRoom(roomName);
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(joinInput.GetComponent<TMP_InputField>().text);
+        string roomName = createInput.GetComponent<TMP_InputField>().text;
+        PhotonNetwork.JoinRoom(roomName);
     }
 
     public override void OnJoinedRoom()
