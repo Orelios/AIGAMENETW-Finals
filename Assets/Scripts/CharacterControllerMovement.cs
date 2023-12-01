@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 
-public class CharacterControllerMovement : MonoBehaviour
+public class CharacterControllerMovement : MonoBehaviourPunCallbacks
 {
     private CharacterController characterController;
+    private PhotonView photonView;
+    private SpriteRenderer spriteRenderer;
 
     private float gravity = -9.8f;
 
@@ -21,26 +24,28 @@ public class CharacterControllerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public GameObject player;
-    public GameObject bullet;
-    bool isGrounded;
-    private PhotonView view;
 
-    private void Start()
-    {
-        view = GetComponent<PhotonView>();
-    }
+    //[SerializeField]
+    ////What is the ID of the pooled object that we want as a bullet
+    //private string bulletId;
+
+    //public GameObject bullet;
+    bool isGrounded;
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        photonView = GetComponent<PhotonView>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (view.IsMine)
+        if (!photonView.IsMine)
         {
-            Move();
+            return;
         }
+        Move();
     }
 
     private void Move()
@@ -83,6 +88,7 @@ public class CharacterControllerMovement : MonoBehaviour
     {
         if (gameObject.GetComponent<Character>().currHealth <= 0)
         {
+            Debug.Log("Hi im dead");
             Die();
         }
     }

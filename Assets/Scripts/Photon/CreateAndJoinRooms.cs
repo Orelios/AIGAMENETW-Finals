@@ -8,6 +8,7 @@ using TMPro;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
+    private byte maxPlayersPerRoom = 4;
     public GameObject createInput;
     public GameObject joinInput;
 
@@ -16,7 +17,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         string roomName = createInput.GetComponent<TMP_InputField>().text;
         if (roomName.Length > 1)
         {
-            PhotonNetwork.CreateRoom(roomName);
+            PhotonNetwork.CreateRoom(roomName,
+                new Photon.Realtime.RoomOptions { MaxPlayers = maxPlayersPerRoom });
             Debug.Log("Created: " + roomName);
         }
         else

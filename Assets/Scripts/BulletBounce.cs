@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+
 
 public class BulletBounce : MonoBehaviour
 {
@@ -44,7 +47,8 @@ public class BulletBounce : MonoBehaviour
     {
         if (bounceNo >= bounceLimit)
         {
-            ObjectPoolManager.ReturnObjectToPool(gameObject);
+            //ObjectPoolManager.ReturnObjectToPool(gameObject);
+            this.gameObject.SetActive(false);
         }
 
         currentSpeed = lastVelocity.magnitude;
