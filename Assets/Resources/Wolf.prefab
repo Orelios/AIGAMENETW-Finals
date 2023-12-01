@@ -113,8 +113,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.075949654, y: 0.18693832, z: 0.2845823}
+  m_Center: {x: 0.000036383048, y: -0.0016860776, z: -0.036608294}
 --- !u!195 &5035931132423832706
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 0
   maxHealth: 3
+  playerListIndex: 0
 --- !u!54 &5127872939268562863
 Rigidbody:
   m_ObjectHideFlags: 0
