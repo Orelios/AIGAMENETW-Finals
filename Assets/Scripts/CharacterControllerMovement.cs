@@ -88,6 +88,7 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
     {
         if (gameObject.GetComponent<Character>().currHealth <= 0)
         {
+            Debug.Log("Hi im dead");
             Die();
         }
     }

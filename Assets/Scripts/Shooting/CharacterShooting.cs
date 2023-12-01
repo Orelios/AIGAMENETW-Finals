@@ -97,8 +97,8 @@ public class CharacterShooting : MonoBehaviourPunCallbacks
         if (pooledBullet != null)
         {
             //Modify the bullet's position and rotation
-            pooledBullet.transform.position = transform.position;
-            pooledBullet.transform.rotation = transform.rotation;
+            pooledBullet.transform.position = bulletSpawnPoint.transform.position;
+            pooledBullet.transform.rotation = bulletSpawnPoint.transform.rotation;
             pooledBullet.GetComponent<Bullet>().InitializeValues(photonView.Owner);
             //Enable the gameObject
             pooledBullet.SetActive(true);
