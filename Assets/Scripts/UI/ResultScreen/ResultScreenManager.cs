@@ -6,6 +6,9 @@ public class ResultScreenManager : MonoBehaviour
 {
     public GameObject resultScreen;
     public List<GameObject> players;
+    public int oneStarMinScore = 10;
+    public int twoStarMinScore = 20;
+    public int threeStarMinScore = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +35,41 @@ public class ResultScreenManager : MonoBehaviour
 
     public void StopGame()
     {
-        resultScreen.SetActive(true);
         GameTimer.Instance.StopGameTimer();
         StopAllPlayerMovement();
+        resultScreen.SetActive(true);
+        DetermineStamp();
+    }
+
+    public void DetermineStamp()
+    {
+        if (Score.Instance.score < oneStarMinScore)
+        {
+            resultScreen.transform.GetChild(3).gameObject.SetActive(true);
+            resultScreen.transform.GetChild(4).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(5).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(6).gameObject.SetActive(false);
+        }
+        else if (Score.Instance.score >= oneStarMinScore && Score.Instance.score < twoStarMinScore)
+        {
+            resultScreen.transform.GetChild(3).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(4).gameObject.SetActive(true);
+            resultScreen.transform.GetChild(5).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(6).gameObject.SetActive(false);
+        }
+        else if (Score.Instance.score >= twoStarMinScore && Score.Instance.score < threeStarMinScore)
+        {
+            resultScreen.transform.GetChild(3).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(4).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(5).gameObject.SetActive(true);
+            resultScreen.transform.GetChild(6).gameObject.SetActive(false);
+        }
+        else if (Score.Instance.score >= threeStarMinScore)
+        {
+            resultScreen.transform.GetChild(3).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(4).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(5).gameObject.SetActive(false);
+            resultScreen.transform.GetChild(6).gameObject.SetActive(true);
+        }
     }
 }
