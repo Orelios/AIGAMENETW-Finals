@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
+using Photon.Pun;
+using System;
+using Photon.Realtime;
+using Photon.Pun.UtilityScripts;
 
 public class DeathStateWolf : Node
 {
@@ -16,7 +20,8 @@ public class DeathStateWolf : Node
         {
             _wolf.GetComponent<Character>().currHealth += _wolf.GetComponent<Character>().maxHealth;
             _wolf.GetComponentInChildren<Canvas>().enabled = false;
-            ObjectPoolManager.ReturnObjectToPool(_wolf);
+            NetworkDestroy();
+            //ObjectPoolManager.ReturnObjectToPool(_wolf);
             state = NodeState.Success;
             return state;
         }
@@ -25,5 +30,26 @@ public class DeathStateWolf : Node
         return state;
     }
 
+    public void NetworkDestroy()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            DestroyGlobally();
+        }
+
+        //else
+            //DestroyLocally();
+    }
+
+    private void DestroyLocally()
+    {
+        //isDestroyed = true;
+    }
+
+    private void DestroyGlobally()
+    {
+        PhotonNetwork.Destroy(_wolf);
+        //isDestroyed = true;
+    }
 }
 
