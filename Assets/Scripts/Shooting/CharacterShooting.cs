@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using Photon.Pun;
+using Photon.Realtime;
+using Photon.Pun.UtilityScripts;
 
-public class CharacterShooting : MonoBehaviour
+public class CharacterShooting : MonoBehaviourPunCallbacks
 {
-    public GameObject bullet;
+    //public GameObject bullet;
+
+    [SerializeField]
+    //What is the ID of the pooled object that we want as a bullet
+    private string bulletId;
 
     [SerializeField]
     private Transform player;
@@ -14,23 +20,25 @@ public class CharacterShooting : MonoBehaviour
     private Transform bulletSpawnPoint;
     [SerializeField]
     private float RotSpeed = 20.0f;
-
+    [SerializeField]
     protected float shootRate;
     protected float elapsedTime;
-    private PhotonView view;
+    private PhotonView photonView;
 
-    void Start()
+    private void Awake()
     {
-        view = GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
     }
 
     void Update()
     {
-        if (view.IsMine)
+        if (!photonView.IsMine)
         {
-            UpdateAim();
-            UpdateWeapon();
+            return;
         }
+
+        UpdateAim();
+        UpdateWeapon();
     }
 
     void UpdateAim()
@@ -53,14 +61,42 @@ public class CharacterShooting : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //Ensure that the RPC call will be handled only by the local player
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
             if (elapsedTime >= shootRate)
             {
                 //Reset the time
                 elapsedTime = 0.0f;
 
+
+                photonView.RPC("RPCShootBullet", RpcTarget.AllViaServer);
                 //Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-                ObjectPoolManager.SpawnObject(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation, ObjectPoolManager.PoolType.Bullets);
+                //ObjectPoolManager.SpawnObject(bullet, bulletSpawnPoint.position, //bulletSpawnPoint.rotation, ObjectPoolManager.PoolType.Bullets);
             }
+        }
+    }
+
+    [PunRPC]
+    private void RPCShootBullet()
+    {
+        //Instead of manually instantiating a bullet, we need to have it pooled to save up memory and for better performance
+        //Instantiate(bullet, transform.position, transform.rotation);
+
+        //Get a prefab from the object pool manager
+        GameObject pooledBullet = ObjectPoolManager.Instance.GetPooledObject(bulletId);
+        if (pooledBullet != null)
+        {
+            //Modify the bullet's position and rotation
+            pooledBullet.transform.position = transform.position;
+            pooledBullet.transform.rotation = transform.rotation;
+            //pooledBullet.GetComponent<Bullet>().InitializeValues(photonView.Owner);
+            //pooledBullet.GetComponent<Bullet>().InitializeValues(photonView.Owner);
+            //Enable the gameObject
+            pooledBullet.SetActive(true);
         }
     }
 }
