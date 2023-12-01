@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6868602340634259153}
   - component: {fileID: 2821173098602986413}
+  - component: {fileID: 7741719236768214568}
   m_Layer: 0
   m_Name: ResultScreenManager
   m_TagString: Untagged
@@ -45,4 +46,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultScreen: {fileID: 0}
-  players: []
+  players:
+  - {fileID: 0}
+  oneStarMinScore: 10
+  twoStarMinScore: 20
+  threeStarMinScore: 30
+--- !u!114 &7741719236768214568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7579916644457027531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579f4e6031a6b794f84115f3454cf5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
