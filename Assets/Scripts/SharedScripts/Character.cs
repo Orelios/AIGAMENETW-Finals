@@ -7,11 +7,18 @@ public class Character : MonoBehaviour
     public float currHealth;
     [SerializeField]
     public float maxHealth = 3.0f;
+    public int playerListIndex;
 
     // Start is called before the first frame update
     void Start()
     {
         currHealth = maxHealth;
+        if (this.CompareTag("Player"))
+        {
+            PlayerManager.Instance.playerList.Add(this);
+            playerListIndex = PlayerManager.Instance.playerList.Count - 1;
+            PlayerManager.Instance.playerHealthBar[playerListIndex].GetComponent<PlayerHealthIcons>().player = this;
+        }
     }
 
     // Update is called once per frame
