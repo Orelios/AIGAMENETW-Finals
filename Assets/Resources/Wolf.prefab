@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 0
   maxHealth: 3
+  playerListIndex: 0
 --- !u!54 &5127872939268562863
 Rigidbody:
   m_ObjectHideFlags: 0
