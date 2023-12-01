@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 292722823151498209}
   - component: {fileID: 7242281767265499271}
   - component: {fileID: 8687894501351386820}
+  - component: {fileID: 9175069934068414100}
   m_Layer: 0
   m_Name: FencedArea
   m_TagString: Untagged
@@ -542,7 +543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a9f4072ec7c304ebff652d4fdf0a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 0}
 --- !u!65 &8687894501351386820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -564,6 +564,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8, y: 2, z: 8}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &9175069934068414100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235326733799801095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5414986922228551407
 GameObject:
   m_ObjectHideFlags: 0
