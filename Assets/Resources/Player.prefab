@@ -528,7 +528,7 @@ MonoBehaviour:
   bullet: {fileID: 387467797900148890, guid: 0cbdca22e37606043ae512857cffc44e, type: 3}
   player: {fileID: 2450557897336947274}
   bulletSpawnPoint: {fileID: 3812906415901299268}
-  RotSpeed: 20
+  RotSpeed: 50
 --- !u!114 &1200524595891785362
 MonoBehaviour:
   m_ObjectHideFlags: 0
