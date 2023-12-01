@@ -20,4 +20,9 @@ public class ResultsScreenButtons : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene("00_TitleScreen");
+    }
 }
