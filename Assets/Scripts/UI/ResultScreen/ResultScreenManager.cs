@@ -6,9 +6,9 @@ public class ResultScreenManager : MonoBehaviour
 {
     public GameObject resultScreen;
     public List<GameObject> players;
-    public int oneStarMinScore;
-    public int twoStarMinScore;
-    public int threeStarMinScore;
+    public int oneStarMinScore = 10;
+    public int twoStarMinScore = 20;
+    public int threeStarMinScore = 30;
     // Start is called before the first frame update
     void Start()
     {
