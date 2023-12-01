@@ -605,7 +605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &969426427
 Transform:
   m_ObjectHideFlags: 0
@@ -877,6 +877,10 @@ PrefabInstance:
     - target: {fileID: 2729387434167760600, guid: a33a899fcdf7d18429018906c137d318, type: 3}
       propertyPath: m_Name
       value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729387434167760600, guid: a33a899fcdf7d18429018906c137d318, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3832932681627868088, guid: a33a899fcdf7d18429018906c137d318, type: 3}
       propertyPath: m_LocalPosition.x
