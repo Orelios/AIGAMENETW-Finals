@@ -40,6 +40,11 @@ public class StartGame : MonoBehaviourPunCallbacks
         }
     }*/
 
+    void Start()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
+
     public void OnClickStartGame()
     {
         if (PhotonNetwork.IsMasterClient)
