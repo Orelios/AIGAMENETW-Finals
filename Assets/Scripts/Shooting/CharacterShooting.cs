@@ -8,7 +8,7 @@ using Photon.Pun.UtilityScripts;
 
 public class CharacterShooting : MonoBehaviourPunCallbacks
 {
-    //public GameObject bullet;
+    public GameObject bullet;
 
     [SerializeField]
     //What is the ID of the pooled object that we want as a bullet
@@ -61,23 +61,29 @@ public class CharacterShooting : MonoBehaviourPunCallbacks
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //Ensure that the RPC call will be handled only by the local player
-            if (!photonView.IsMine)
-            {
-                return;
-            }
-
+            Debug.Log("Mouse down");
             if (elapsedTime >= shootRate)
             {
+                Debug.Log("Time elapsed");
                 //Reset the time
                 elapsedTime = 0.0f;
-
-
-                photonView.RPC("RPCShootBullet", RpcTarget.AllViaServer);
+                Shoot();
                 //Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 //ObjectPoolManager.SpawnObject(bullet, bulletSpawnPoint.position, //bulletSpawnPoint.rotation, ObjectPoolManager.PoolType.Bullets);
             }
         }
+    }
+
+    private void Shoot()
+    {
+        //Ensure that the RPC call will be handled only by the local player
+        if (!photonView.IsMine)
+        {
+            Debug.Log("Sekaiiii de");
+            return;
+        }
+        photonView.RPC("RPCShootBullet", RpcTarget.AllViaServer);
+        Debug.Log("Pewpepwepwpew");
     }
 
     [PunRPC]

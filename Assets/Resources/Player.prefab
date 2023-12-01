@@ -489,11 +489,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7656936a1c453d24cb92f2275e9cce25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 387467797900148890, guid: 0cbdca22e37606043ae512857cffc44e, type: 3}
   bulletId: Bullet
   player: {fileID: 2450557897336947274}
   bulletSpawnPoint: {fileID: 3812906415901299268}
   RotSpeed: 50
-  shootRate: 2
+  shootRate: 0
 --- !u!114 &7131457807156829758
 MonoBehaviour:
   m_ObjectHideFlags: 0
