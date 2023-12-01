@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2388710364764353461, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
+      propertyPath: wolfId
+      value: Wolf
+      objectReference: {fileID: 0}
     - target: {fileID: 8491754033379513120, guid: fc2f7a0875f43a54a8da2a2d4f5687ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.46
