@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class ObjectPoolManager : MonoBehaviour
 {
@@ -82,7 +84,7 @@ public class ObjectPoolManager : MonoBehaviour
             GameObject parentObject = SetParentObject(poolType);
 
             //If there is no inactive objects, it will create a new one.
-            spawnableObj = Instantiate(objectToSpawn, spawnPosition, spawnRotation);
+            spawnableObj = PhotonNetwork.Instantiate( objectToSpawn.name, spawnPosition, spawnRotation);
 
             if (parentObject != null)
             {
