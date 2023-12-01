@@ -1,155 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 
-public class ObjectPoolManager : MonoBehaviour
+public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
-    public static List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
 
-    private GameObject objectPoolEmptyHolder;
+    public List<ObjectPoolItem> itemsToPool;
+    [SerializeField]
+    private List<GameObject> pooledObjects;
 
-    private static GameObject bulletsEmpty;
-    private static GameObject enemiesEmpty;
-    private static GameObject sheepEmpty;
-    private static GameObject particleSystemEmpty;
-
-
-    public enum PoolType
+    private void Start()
     {
-        Bullets,
-        Enemies,
-        Sheep,
-        ParticleSystem,
-        None
-    }
-    public static PoolType PoolingType;
+        //initialize the list
+        pooledObjects = new List<GameObject>();
 
-    private void Awake()
-    {
-        SetupEmpties();
-    }
-
-    private void SetupEmpties()
-    {
-        objectPoolEmptyHolder = new GameObject("Pooled Objects");
-
-        bulletsEmpty = new GameObject("Bullets");
-        bulletsEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
-
-        enemiesEmpty = new GameObject("Enemies");
-        enemiesEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
-
-        sheepEmpty = new GameObject("Sheep");
-        sheepEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
-
-        particleSystemEmpty = new GameObject("Particle System");
-        particleSystemEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
-    }
-
-    public static GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
-    {
-        PooledObjectInfo pool = null;
-        foreach (PooledObjectInfo p in ObjectPools)
+        //Traverse through eact item in the itemsToPool list
+        foreach (ObjectPoolItem item in itemsToPool)
         {
-            if (p.LookupString == objectToSpawn.name)
+            //instantiate the object's prefab based on the initial amount to pool
+            for (int i = 0; i < item.amountToPool; i++)
             {
-                pool = p;
-                break;
+                //Instantiate the prefab
+                GameObject obj = Instantiate(item.objectToPool, item.parent);
+                obj.AddComponent<PooledObjectItem>();
+                obj.GetComponent<PooledObjectItem>().ID = item.id;
+                obj.SetActive(false);
+                pooledObjects.Add(obj);
+            }
+        }
+    }
+
+    public void ReturnObjectToPool(GameObject go)
+    {
+        if (pooledObjects.Contains(go))
+        {
+            go.SetActive(false);
+        }
+    }
+
+    public GameObject GetPooledObject(string id)
+    {
+        //Check all gameobject in the pooledobjects
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            //we need to make sure that the object is not active and that object has the same id
+            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].GetComponent<PooledObjectItem>().ID == id)
+            {
+                return pooledObjects[i];
             }
         }
 
-        //If the pool does not exist, it will be created.
-        if (pool == null)
+        //if all objects are currently in use
+        //check if the object can expand and if so, instantiate a new object and add it to the pool
+        //Traverse through eact item in the itemsToPool list
+        foreach (ObjectPoolItem item in itemsToPool)
         {
-            pool = new PooledObjectInfo() { LookupString = objectToSpawn.name };
-            ObjectPools.Add(pool);
-        }
-
-        //Checks for inactive objects in pool.
-        GameObject spawnableObj = null;
-        foreach (GameObject obj in pool.InactiveObjects)
-        {
-            if (obj != null)
+            if (item.id == id)
             {
-                spawnableObj = obj;
-                break;
+                if (item.shouldExpand)
+                {
+                    GameObject obj = Instantiate(item.objectToPool, item.parent);
+                    obj.AddComponent<PooledObjectItem>();
+                    obj.GetComponent<PooledObjectItem>().ID = item.id;
+                    obj.SetActive(false);
+                    pooledObjects.Add(obj);
+                    return obj;
+                }
             }
         }
 
-        if (spawnableObj == null)
-        {
-            //Finds the parent of the empty object.
-            GameObject parentObject = SetParentObject(poolType);
-
-            //If there is no inactive objects, it will create a new one.
-            spawnableObj = PhotonNetwork.Instantiate( objectToSpawn.name, spawnPosition, spawnRotation);
-
-            if (parentObject != null)
-            {
-                spawnableObj.transform.SetParent(parentObject.transform);
-            }
-        }
-
-        else
-        {
-            //If there is an inactive object, it is activated.
-            spawnableObj.transform.position = spawnPosition;
-            spawnableObj.transform.rotation = spawnRotation;
-            pool.InactiveObjects.Remove(spawnableObj);
-            spawnableObj.SetActive(true);
-        }
-
-        return spawnableObj;
+        return null;
     }
 
-    public static void ReturnObjectToPool(GameObject obj)
-    {
-        //Removes "(Clone)" from the name of the passed object.
-        string goName = obj.name.Substring(0, obj.name.Length - 7);
-
-        PooledObjectInfo pool = ObjectPools.Find(p => p.LookupString == goName);
-
-        if (pool == null)
-        {
-            Debug.LogWarning("Trying to release an object that is not pooled: " + obj.name);
-        }
-
-        else
-        {
-            obj.SetActive(false);
-            pool.InactiveObjects.Add(obj);
-        }
-    }
-
-    private static GameObject SetParentObject(PoolType poolType)
-    {
-        switch (poolType)
-        {
-            case PoolType.Bullets:
-                return bulletsEmpty;
-
-            case PoolType.Enemies:
-                return enemiesEmpty;
-
-            case PoolType.Sheep:
-                return sheepEmpty;
-
-            case PoolType.ParticleSystem:
-                return particleSystemEmpty;
-
-            case PoolType.None:
-                return null;
-
-            default:
-                return null;
-        }
-    }
-}
-
-public class PooledObjectInfo
-{
-    public string LookupString;
-    public List<GameObject> InactiveObjects = new List<GameObject>();
 }

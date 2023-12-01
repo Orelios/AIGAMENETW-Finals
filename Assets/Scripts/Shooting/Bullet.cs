@@ -1,28 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class Bullet : MonoBehaviour
 {
-    public float Speed = 50.0f;
-    public float LifeTime = 10.0f;
-    public int damage = 1;
-
-    private Rigidbody rb;
-
-    private Coroutine _returnToPoolTimerCoroutine;
+    [SerializeField]
+    private float Speed = 50.0f;
+    [SerializeField]
+    private float LifeTime = 3.0f;
+    public int damage;
 
     [SerializeField]
     private int bounceLimit = 1;
+    private int bounceNo = 0;
 
     public Vector3 Direction;
-    private int bounceNo = 0;
+
+    private Rigidbody rb;
+    public Player Owner { get; private set; }
+    //private Coroutine _returnToPoolTimerCoroutine;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         //Destroy(gameObject, LifeTime);
         Direction = transform.forward;
+    }
+
+    public void InitializeValues( Player owner)
+    {
+        damage = 1;
+        this.Owner = owner;
     }
 
     void FixedUpdate()
@@ -33,7 +48,7 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         Direction = transform.forward;
-        _returnToPoolTimerCoroutine = StartCoroutine(ReturnToPoolAfterTime());
+        //_returnToPoolTimerCoroutine = StartCoroutine(ReturnToPoolAfterTime());
     }
 
     private void OnDisable()
@@ -52,7 +67,8 @@ public class Bullet : MonoBehaviour
 
         if (bounceNo >= bounceLimit)
         {
-            ObjectPoolManager.ReturnObjectToPool(gameObject);
+            this.gameObject.SetActive(false);
+            //ObjectPoolManager.ReturnObjectToPool(gameObject);
         }
 
         if (collision.gameObject.CompareTag("Obstacle"))
@@ -61,7 +77,8 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            ObjectPoolManager.ReturnObjectToPool(gameObject);
+            this.gameObject.SetActive(false);
+            //ObjectPoolManager.ReturnObjectToPool(gameObject);
         }
     }
 
@@ -79,6 +96,6 @@ public class Bullet : MonoBehaviour
             yield return null;
         }
 
-        ObjectPoolManager. ReturnObjectToPool(gameObject);
+        //ObjectPoolManager. ReturnObjectToPool(gameObject);
     }
 }
