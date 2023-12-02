@@ -68,7 +68,6 @@ public class CharacterShooting : MonoBehaviourPunCallbacks
                 //Reset the time
                 elapsedTime = 0.0f;
                 Shoot();
-                SoundManager.PlaySFXOneShot(SoundManager.SFX.GunShoot);
                 //Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 //ObjectPoolManager.SpawnObject(bullet, bulletSpawnPoint.position, //bulletSpawnPoint.rotation, ObjectPoolManager.PoolType.Bullets);
             }

@@ -41,7 +41,6 @@ public class TaskRunFromPlayers : Node
 
     private void RunFromPlayer()
     {
-        SoundManager.PlaySFXOneShot(SoundManager.SFX.SheepBah);
         Transform target = (Transform)GetData("target");
         if (Vector3.Distance(_transform.position, target.position) < _runDistance)
         {

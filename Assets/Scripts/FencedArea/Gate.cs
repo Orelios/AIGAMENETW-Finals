@@ -1,11 +1,8 @@
-using ExitGames.Client.Photon;
-using Photon.Pun;
-using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gate : MonoBehaviourPun
+public class Gate : MonoBehaviour
 {
     public float rotateSpeed = 1.0f;
     public float openRotation = 270.0f;
@@ -15,8 +12,7 @@ public class Gate : MonoBehaviourPun
     public bool isClosing = false;
     private bool isOpen = false;
     private bool isClosed = false;
-
-    private const byte ROTATE_PIVOT_EVENT = 1;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,33 +23,6 @@ public class Gate : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        RotatePivot();
-    }
-
-    private void OnEnable() //listen to when an event is dispatched by Photon
-    {
-        PhotonNetwork.NetworkingClient.EventReceived += NetworkingClient_EventReceived; //if you want events to always fire on the object whether it's enabled or not, move this code to on Awake() then remove upon destroyed
-    }
-
-    private void OnDisable() //events won't fire on this object while it's disabled
-    {
-        PhotonNetwork.NetworkingClient.EventReceived -= NetworkingClient_EventReceived; //remove listener
-    }
-
-    private void NetworkingClient_EventReceived(EventData obj)
-    {
-        if (obj.Code == ROTATE_PIVOT_EVENT) //method called whenever we receive an event
-        {
-            object[] datas = (object[])obj.CustomData;
-            bool isOpening = (bool)datas[0];
-            bool isOpen = (bool)datas[1];
-            bool isClosing = (bool)datas[2];
-            bool isClosed = (bool)datas[3];
-        }
-    }
-
-    private void RotatePivot()
-    {
         Vector3 currentRotation = transform.localEulerAngles;
         if (clockwise == true)
         {
@@ -62,6 +31,7 @@ public class Gate : MonoBehaviourPun
                 if (currentRotation.y < openRotation)
                 {
                     transform.Rotate(new Vector3(0f, 100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, openRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -75,6 +45,7 @@ public class Gate : MonoBehaviourPun
                 if (currentRotation.y > closedRotation)
                 {
                     transform.Rotate(new Vector3(0f, -100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, closedRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -91,6 +62,7 @@ public class Gate : MonoBehaviourPun
                 if (currentRotation.y > openRotation)
                 {
                     transform.Rotate(new Vector3(0f, -100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, openRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -104,6 +76,7 @@ public class Gate : MonoBehaviourPun
                 if (currentRotation.y < closedRotation)
                 {
                     transform.Rotate(new Vector3(0f, 100f * rotateSpeed, 0f) * Time.deltaTime);
+                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, closedRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -113,9 +86,9 @@ public class Gate : MonoBehaviourPun
                 }
             }
         }
-        object[] datas = new object[] { isOpening, isClosing, isOpen, isClosed };
-        PhotonNetwork.RaiseEvent(ROTATE_PIVOT_EVENT, datas, RaiseEventOptions.Default, SendOptions.SendReliable);
+        
     }
+
     public void OpenGate()
     {
         isOpening = true;

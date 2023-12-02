@@ -1,10 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.AI; 
 using BehaviorTree;
-using Photon.Pun;
-using Photon.Realtime;
-using Photon.Pun.UtilityScripts;
 
 public class SheepBT : BehaviorTree.BehaviorTree
 {
@@ -17,7 +13,6 @@ public class SheepBT : BehaviorTree.BehaviorTree
     public float speed = 2.0f;
     public UnityEngine.Transform[] waypoints;
     public float roamToWaypointDistance = 10;
-    private PhotonView photonView;
 
     [UnityEngine.Header("CheckPlayerFOVRange Variables")]
     //CheckPlayerFOVRange variables
@@ -31,13 +26,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
     public UnityEngine.GameObject sheep;
     //public UnityEngine.GameObject enemy;
     public static int sheephealth = 1;
-    public bool isInsideFence = false;
-
-    private void Awake()
-    {
-        photonView = GetComponent<PhotonView>();
-    }
-
+    public bool isInsideFence = false; 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -69,23 +58,5 @@ public class SheepBT : BehaviorTree.BehaviorTree
         });
                                                  
         return root; 
-    }
-
-    public void SheepDie()
-    {
-        SoundManager.PlaySFXOneShot(SoundManager.SFX.SheepDeath);
-        //Ensure that the RPC call will be handled only by the local player
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-        photonView.RPC("RPCSheepDie", RpcTarget.AllViaServer);
-        Debug.Log("Sheep Death");
-    }
-
-    [PunRPC]
-    private void RPCSheepDie()
-    {
-        this.gameObject.SetActive(false);
     }
 }

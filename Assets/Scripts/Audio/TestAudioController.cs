@@ -30,17 +30,5 @@ public class TestAudioController : MonoBehaviour
         {
             SoundManager.PlaySFXOneShot(SoundManager.SFX.WolfHurt);
         }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            SoundManager.PlayMusic(SoundManager.Music.MenuTheme);
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            SoundManager.PlayMusic(SoundManager.Music.LevelTheme);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SoundManager.StopMusic();
-        }
     }
 }

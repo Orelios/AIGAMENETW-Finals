@@ -55,7 +55,6 @@ public class WolfSpawner : MonoBehaviourPunCallbacks
 
     private void SpawnOverNetwork()
     {
-        SoundManager.PlaySFXOneShot(SoundManager.SFX.WolfGrowl);
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.InstantiateRoomObject(wolfId, GetSpawnPosition(), Quaternion.identity);

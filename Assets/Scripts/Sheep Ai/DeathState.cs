@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BehaviorTree;
+using BehaviorTree; 
 
 public class DeathState : Node
 {
@@ -25,7 +25,7 @@ public class DeathState : Node
             {
                 ObjectiveCounter.Instance.sheepLeft -= 1;
             }
-            _sheep.GetComponent<SheepBT>().SheepDie();
+            _sheep.SetActive(false);
             state = NodeState.Success;
             return state;
         }
