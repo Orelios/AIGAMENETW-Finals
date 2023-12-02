@@ -13,7 +13,7 @@ public class GateInterruptible : MonoBehaviourPun
     public bool clockwise = true;
     public bool isOpening = false;
 
-    private const byte ROTATE_PIVOT_EVENT = 0;
+    private const byte INTERRUPTIBLE_ROTATE_PIVOT_EVENT = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class GateInterruptible : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        RotatePivot();
+        InterruptibleRotatePivot();
     }
 
     private void OnEnable() //listen to when an event is dispatched by Photon
@@ -39,7 +39,7 @@ public class GateInterruptible : MonoBehaviourPun
 
     private void NetworkingClient_EventReceived(EventData obj)
     {
-        if (obj.Code == ROTATE_PIVOT_EVENT) //method called whenever we receive an event
+        if (obj.Code == INTERRUPTIBLE_ROTATE_PIVOT_EVENT) //method called whenever we receive an event
         {
             object[] datas = (object[])obj.CustomData;
             bool isOpening = (bool)datas[0];
@@ -50,7 +50,7 @@ public class GateInterruptible : MonoBehaviourPun
         }
     }
 
-    private void RotatePivot()
+    private void InterruptibleRotatePivot()
     {
         Vector3 currentRotation = transform.localEulerAngles;
         if (clockwise == true)
@@ -88,6 +88,6 @@ public class GateInterruptible : MonoBehaviourPun
             }
         }
         object[] datas = new object[] { isOpening };
-        PhotonNetwork.RaiseEvent(ROTATE_PIVOT_EVENT, datas, RaiseEventOptions.Default, SendOptions.SendReliable);
+        PhotonNetwork.RaiseEvent(INTERRUPTIBLE_ROTATE_PIVOT_EVENT, datas, RaiseEventOptions.Default, SendOptions.SendReliable);
     }
 }
