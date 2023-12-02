@@ -42,6 +42,9 @@ MonoBehaviour:
   - RPCShootBullet
   - RPCSheepDie
   - RPCWolfDie
+  - RPCPlayDeathSoound
+  - RPCPlayLevelMusic
+  - RPCPlayDeathSound
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

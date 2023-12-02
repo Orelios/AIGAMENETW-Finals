@@ -93,10 +93,34 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
             Debug.Log("Hi im dead");
             Die();
         }
+        else
+        {
+            SoundManager.PlaySFX(SoundManager.SFX.CatHurt);
+        }
     }
 
     private void Die()
     {
+        PlayDeathSound();
         PhotonNetwork.Destroy(this.gameObject);
+    }
+
+    private void PlayDeathSound()
+    {
+        //Ensure that the RPC call will be handled only by the local player
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+        photonView.RPC("RPCPlayDeathSound", RpcTarget.AllViaServer);
+        SoundManager.PlaySFXOneShot(SoundManager.SFX.CatDeath);
+        Debug.Log("Death Sound");
+    }
+
+    [PunRPC]
+    private void RPCPlayDeathSound()
+    {
+        Debug.Log("Playing Death Sound!");
+        //SoundManager.PlaySFXOneShot(SoundManager.SFX.CatDeath);
     }
 }

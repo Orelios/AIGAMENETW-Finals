@@ -73,6 +73,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
 
     public void SheepDie()
     {
+        SoundManager.PlaySFXOneShot(SoundManager.SFX.SheepDeath);
         //Ensure that the RPC call will be handled only by the local player
         if (!photonView.IsMine)
         {
@@ -83,7 +84,6 @@ public class SheepBT : BehaviorTree.BehaviorTree
     }
 
     [PunRPC]
-
     private void RPCSheepDie()
     {
         this.gameObject.SetActive(false);
