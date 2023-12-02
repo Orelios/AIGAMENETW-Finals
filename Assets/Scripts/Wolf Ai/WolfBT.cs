@@ -30,12 +30,14 @@ public class WolfBT : BehaviorTree.BehaviorTree
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            SoundManager.PlaySFXOneShot(SoundManager.SFX.WolfHurt);
             gameObject.GetComponentInChildren<Canvas>().enabled = true;
             gameObject.GetComponent<Character>().currHealth -= 1; 
         }
     }
     public void WolfDie()
     {
+        SoundManager.PlaySFXOneShot(SoundManager.SFX.WolfDeath);
         //Ensure that the RPC call will be handled only by the local player
         if (!photonView.IsMine)
         {

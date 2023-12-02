@@ -83,13 +83,13 @@ MonoBehaviour:
     volume: 0.5
   - sfx: 12
     audioClip: {fileID: 8300000, guid: e475c06b2c269404283ddfad920703bf, type: 3}
-    volume: 0.5
+    volume: 0.1
   - sfx: 13
     audioClip: {fileID: 8300000, guid: cbb7bb2c99dc4974180d1e95227db7e1, type: 3}
-    volume: 0.5
+    volume: 0.1
   - sfx: 14
     audioClip: {fileID: 8300000, guid: fb556751225828449a8621e873878645, type: 3}
-    volume: 0.5
+    volume: 0.1
   - sfx: 15
     audioClip: {fileID: 8300000, guid: 47cc70d921abba8419680c857594d40b, type: 3}
     volume: 0.5
@@ -101,11 +101,17 @@ MonoBehaviour:
     volume: 0.5
   - sfx: 18
     audioClip: {fileID: 8300000, guid: 7f82a214d9d1dad449613eed2abea6e7, type: 3}
-    volume: 0.3
+    volume: 0.2
   - sfx: 19
     audioClip: {fileID: 8300000, guid: d9a6f4fba91b0b04980bd495eefa3e74, type: 3}
-    volume: 0.3
+    volume: 0.2
   - sfx: 20
     audioClip: {fileID: 8300000, guid: b70148c5145390a4dafff260f855fec8, type: 3}
-    volume: 0.3
-  musicAudioClipArray: []
+    volume: 0.2
+  musicAudioClipArray:
+  - music: 0
+    audioClip: {fileID: 8300000, guid: de26ed26a0cbb8f4d9d1bab8878578f7, type: 3}
+    volume: 0.5
+  - music: 1
+    audioClip: {fileID: 8300000, guid: 33b967b7b8c943f49b4939eb77b09d5b, type: 3}
+    volume: 0.5
