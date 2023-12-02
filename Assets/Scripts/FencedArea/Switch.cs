@@ -23,9 +23,11 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+         
         if (other.CompareTag("Player"))
         {
-            if(gatePivotLeft.GetIsClosed()) //only checks gateLeft status
+            Debug.Log("it detected");
+            if (gatePivotLeft.GetIsClosed()) //only checks gateLeft status
             {
                 if (isPlayed == false)
                 {
