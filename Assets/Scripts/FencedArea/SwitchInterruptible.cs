@@ -6,6 +6,7 @@ public class SwitchInterruptible : MonoBehaviour
 {
     public GateInterruptible gatePivotLeft;
     public GateInterruptible gatePivotRight;
+    private bool isPlayed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,12 @@ public class SwitchInterruptible : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if(isPlayed == false)
+        {
+            SoundManager.PlaySFXOneShot(SoundManager.SFX.SwitchOpen);
+            SoundManager.PlaySFXOneShot(SoundManager.SFX.FenceOpen);
+            isPlayed = true;
+        }
         if (other.CompareTag("Player"))
         {
             gatePivotLeft.isOpening = true;
@@ -29,6 +36,12 @@ public class SwitchInterruptible : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (isPlayed == true)
+        {
+            SoundManager.PlaySFXOneShot(SoundManager.SFX.SwitchClose);
+            SoundManager.PlaySFXOneShot(SoundManager.SFX.FenceClose);
+            isPlayed = false;
+        }
         if (other.CompareTag("Player"))
         {
             gatePivotLeft.isOpening = false;
