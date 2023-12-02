@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
 
 public class CharacterControllerMovement : MonoBehaviourPunCallbacks
@@ -72,6 +73,7 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
         velocity.y += gravity * gravityScale * Time.deltaTime;
 
         characterController.Move(velocity * Time.deltaTime);
+
     }
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
@@ -95,6 +97,6 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
 
     private void Die()
     {
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(this.gameObject);
     }
 }
