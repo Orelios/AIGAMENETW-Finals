@@ -1,8 +1,11 @@
+using ExitGames.Client.Photon;
+using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gate : MonoBehaviour
+public class Gate : MonoBehaviourPun
 {
     public float rotateSpeed = 1.0f;
     public float openRotation = 270.0f;
@@ -12,7 +15,8 @@ public class Gate : MonoBehaviour
     public bool isClosing = false;
     private bool isOpen = false;
     private bool isClosed = false;
-    
+
+    private const byte ROTATE_PIVOT_EVENT = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,29 @@ public class Gate : MonoBehaviour
     {
         RotatePivot();
     }
+
+    private void OnEnable() //listen to when an event is dispatched by Photon
+    {
+        PhotonNetwork.NetworkingClient.EventReceived += NetworkingClient_EventReceived; //if you want events to always fire on the object whether it's enabled or not, move this code to on Awake() then remove upon destroyed
+    }
+
+    private void OnDisable() //events won't fire on this object while it's disabled
+    {
+        PhotonNetwork.NetworkingClient.EventReceived -= NetworkingClient_EventReceived; //remove listener
+    }
+
+    private void NetworkingClient_EventReceived(EventData obj)
+    {
+        if (obj.Code == ROTATE_PIVOT_EVENT) //method called whenever we receive an event
+        {
+            object[] datas = (object[])obj.CustomData;
+            isOpening = (bool)datas[0];
+            isOpen = (bool)datas[1];
+            isClosing = (bool)datas[2];
+            isClosed = (bool)datas[3];
+        }
+    }
+
     private void RotatePivot()
     {
         Vector3 currentRotation = transform.localEulerAngles;
@@ -86,6 +113,8 @@ public class Gate : MonoBehaviour
                 }
             }
         }
+        object[] datas = new object[] { isOpening, isClosing, isOpen, isClosed };
+        PhotonNetwork.RaiseEvent(ROTATE_PIVOT_EVENT, datas, RaiseEventOptions.Default, SendOptions.SendReliable);
     }
     public void OpenGate()
     {
