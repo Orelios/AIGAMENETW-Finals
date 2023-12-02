@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
 
 public class CharacterControllerMovement : MonoBehaviourPunCallbacks
@@ -72,6 +73,7 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
         velocity.y += gravity * gravityScale * Time.deltaTime;
 
         characterController.Move(velocity * Time.deltaTime);
+
     }
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
@@ -91,10 +93,34 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
             Debug.Log("Hi im dead");
             Die();
         }
+        else
+        {
+            SoundManager.PlaySFX(SoundManager.SFX.CatHurt);
+        }
     }
 
     private void Die()
     {
-        Destroy(gameObject);
+        PlayDeathSound();
+        PhotonNetwork.Destroy(this.gameObject);
+    }
+
+    private void PlayDeathSound()
+    {
+        //Ensure that the RPC call will be handled only by the local player
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+        photonView.RPC("RPCPlayDeathSound", RpcTarget.AllViaServer);
+        SoundManager.PlaySFXOneShot(SoundManager.SFX.CatDeath);
+        Debug.Log("Death Sound");
+    }
+
+    [PunRPC]
+    private void RPCPlayDeathSound()
+    {
+        Debug.Log("Playing Death Sound!");
+        //SoundManager.PlaySFXOneShot(SoundManager.SFX.CatDeath);
     }
 }

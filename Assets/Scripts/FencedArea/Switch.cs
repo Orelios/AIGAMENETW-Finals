@@ -6,6 +6,8 @@ public class Switch : MonoBehaviour
 {
     public Gate gatePivotLeft;
     public Gate gatePivotRight;
+
+    private bool isPlayed = false;
     
     // Start is called before the first frame update
     void Start()
@@ -27,11 +29,23 @@ public class Switch : MonoBehaviour
             Debug.Log("it detected");
             if (gatePivotLeft.GetIsClosed()) //only checks gateLeft status
             {
+                if (isPlayed == false)
+                {
+                    SoundManager.PlaySFXOneShot(SoundManager.SFX.SwitchOpen);
+                    SoundManager.PlaySFXOneShot(SoundManager.SFX.FenceOpen);
+                    isPlayed = true;
+                }
                 gatePivotLeft.OpenGate();
                 gatePivotRight.OpenGate();
             }
             if (gatePivotLeft.GetIsOpen())
             {
+                if (isPlayed == true)
+                {
+                    SoundManager.PlaySFXOneShot(SoundManager.SFX.SwitchClose);
+                    SoundManager.PlaySFXOneShot(SoundManager.SFX.FenceClose);
+                    isPlayed = false;
+                }
                 gatePivotLeft.CloseGate();
                 gatePivotRight.CloseGate();
             }
