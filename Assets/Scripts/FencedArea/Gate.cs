@@ -23,6 +23,10 @@ public class Gate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RotatePivot();
+    }
+    private void RotatePivot()
+    {
         Vector3 currentRotation = transform.localEulerAngles;
         if (clockwise == true)
         {
@@ -31,7 +35,6 @@ public class Gate : MonoBehaviour
                 if (currentRotation.y < openRotation)
                 {
                     transform.Rotate(new Vector3(0f, 100f * rotateSpeed, 0f) * Time.deltaTime);
-                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, openRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -45,7 +48,6 @@ public class Gate : MonoBehaviour
                 if (currentRotation.y > closedRotation)
                 {
                     transform.Rotate(new Vector3(0f, -100f * rotateSpeed, 0f) * Time.deltaTime);
-                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, closedRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -62,7 +64,6 @@ public class Gate : MonoBehaviour
                 if (currentRotation.y > openRotation)
                 {
                     transform.Rotate(new Vector3(0f, -100f * rotateSpeed, 0f) * Time.deltaTime);
-                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, openRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -76,7 +77,6 @@ public class Gate : MonoBehaviour
                 if (currentRotation.y < closedRotation)
                 {
                     transform.Rotate(new Vector3(0f, 100f * rotateSpeed, 0f) * Time.deltaTime);
-                    //transform.localEulerAngles = Vector3.Lerp(currentRotation, new Vector3(currentRotation.x, closedRotation, currentRotation.z), rotateSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -86,9 +86,7 @@ public class Gate : MonoBehaviour
                 }
             }
         }
-        
     }
-
     public void OpenGate()
     {
         isOpening = true;
