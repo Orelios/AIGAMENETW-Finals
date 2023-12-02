@@ -32,7 +32,8 @@ public class SoundManager : MonoBehaviour
 
     public enum Music
     {
-
+        MenuTheme,
+        LevelTheme
     }
 
     private static GameObject sfxGameObject, sfxOneShotGameObject, musicGameObject;
