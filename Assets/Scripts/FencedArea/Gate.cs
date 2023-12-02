@@ -45,10 +45,10 @@ public class Gate : MonoBehaviourPun
         if (obj.Code == ROTATE_PIVOT_EVENT) //method called whenever we receive an event
         {
             object[] datas = (object[])obj.CustomData;
-            isOpening = (bool)datas[0];
-            isOpen = (bool)datas[1];
-            isClosing = (bool)datas[2];
-            isClosed = (bool)datas[3];
+            bool isOpening = (bool)datas[0];
+            bool isOpen = (bool)datas[1];
+            bool isClosing = (bool)datas[2];
+            bool isClosed = (bool)datas[3];
         }
     }
 
