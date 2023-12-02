@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -4838933450186888610, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,8 +133,8 @@ Transform:
   m_GameObject: {fileID: 1833409298394134202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1.5, z: 1}
+  m_LocalPosition: {x: -1.44, y: 0, z: 0}
+  m_LocalScale: {x: 191.79796, y: 82.119995, z: 186.7015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8085359618503451638}
@@ -146,7 +146,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833409298394134202}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 5876026250842827308, guid: b29c4e373afea6343a550e86679e0798, type: 3}
 --- !u!23 &2416618995052844814
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -167,7 +167,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -4838933450186888610, guid: b29c4e373afea6343a550e86679e0798, type: 3}
+  - {fileID: 8778412184559472700, guid: b29c4e373afea6343a550e86679e0798, type: 3}
+  - {fileID: -5948006445152840939, guid: b29c4e373afea6343a550e86679e0798, type: 3}
+  - {fileID: 506705819354183807, guid: b29c4e373afea6343a550e86679e0798, type: 3}
+  - {fileID: 4891645606513695757, guid: b29c4e373afea6343a550e86679e0798, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,8 +212,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.015163549, y: 0.012651572, z: 0.0024696754}
+  m_Center: {x: 2.3283053e-10, y: 0, z: 0}
 --- !u!1 &4072006187829069800
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -4838933450186888610, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -516,8 +520,8 @@ Transform:
   m_GameObject: {fileID: 8756379993716719253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1.5, z: 1}
+  m_LocalPosition: {x: 1.51, y: 0, z: 0}
+  m_LocalScale: {x: 191.79796, y: 82.119995, z: 186.7015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6421478775402725030}
@@ -529,7 +533,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8756379993716719253}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 9057341493815619553, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
 --- !u!23 &7261178501248293769
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -550,7 +554,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -4838933450186888610, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
+  - {fileID: 8778412184559472700, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
+  - {fileID: 102987177324519282, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
+  - {fileID: 506705819354183807, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
+  - {fileID: 4891645606513695757, guid: 1abab128685ea8443a7bac63046f4a8d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -591,5 +599,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.016272793, y: 0.012651572, z: 0.0024696754}
   m_Center: {x: 0, y: 0, z: 0}
