@@ -19,6 +19,11 @@ public class GateInterruptible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RotatePivot();
+    }
+
+    private void RotatePivot()
+    {
         Vector3 currentRotation = transform.localEulerAngles;
         if (clockwise == true)
         {
@@ -54,6 +59,6 @@ public class GateInterruptible : MonoBehaviour
                 }
             }
         }
-        
+
     }
 }
