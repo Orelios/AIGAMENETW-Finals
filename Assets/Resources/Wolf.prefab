@@ -161,7 +161,7 @@ MonoBehaviour:
     m_Bits: 2176
   range: 5
   FOVRange: 10
-  attackRange: 3
+  attackRange: 4
   wolf: {fileID: 2526543335041981049}
 --- !u!114 &7802141085658259950
 MonoBehaviour:

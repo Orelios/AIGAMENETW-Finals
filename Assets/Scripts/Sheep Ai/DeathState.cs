@@ -26,6 +26,7 @@ public class DeathState : Node
                 ObjectiveCounter.Instance.SubtractSheepLeft();
             }
             _sheep.GetComponent<SheepBT>().SheepDie();
+            _sheep.SetActive(false);
             state = NodeState.Success;
             return state;
         }
