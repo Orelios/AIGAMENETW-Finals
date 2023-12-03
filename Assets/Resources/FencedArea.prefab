@@ -50,7 +50,7 @@ MonoBehaviour:
   rotateSpeed: 1
   openRotation: 90
   closedRotation: 180
-  clockwise: 0
+  clockwise: 1
   isOpening: 0
   isClosing: 0
 --- !u!114 &965539223490484366
@@ -68,7 +68,7 @@ MonoBehaviour:
   rotateSpeed: 1
   openRotation: 90
   closedRotation: 180
-  clockwise: 0
+  clockwise: 1
   isOpening: 0
 --- !u!208 &5909030662207192707
 NavMeshObstacle:
@@ -966,7 +966,7 @@ MonoBehaviour:
   rotateSpeed: 1
   openRotation: 270
   closedRotation: 180
-  clockwise: 1
+  clockwise: 0
   isOpening: 0
   isClosing: 0
 --- !u!114 &538692965345724698
@@ -984,7 +984,7 @@ MonoBehaviour:
   rotateSpeed: 1
   openRotation: 270
   closedRotation: 180
-  clockwise: 1
+  clockwise: 0
   isOpening: 0
 --- !u!208 &2778370955619449835
 NavMeshObstacle:
