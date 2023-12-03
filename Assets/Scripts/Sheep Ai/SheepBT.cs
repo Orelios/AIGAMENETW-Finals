@@ -32,6 +32,7 @@ public class SheepBT : BehaviorTree.BehaviorTree
     //public UnityEngine.GameObject enemy;
     public static int sheephealth = 1;
     public bool isInsideFence = false;
+    public bool canBeHit = true;
 
     private void Awake()
     {
@@ -42,8 +43,13 @@ public class SheepBT : BehaviorTree.BehaviorTree
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            gameObject.GetComponent<Character>().currHealth -= 1; 
-            //sheephealth -= 1;
+            if (canBeHit == true)
+            {
+                canBeHit = false;
+                GetComponent<HitCooldown>().StartHitCooldown();
+                gameObject.GetComponent<Character>().currHealth -= 1;
+                //sheephealth -= 1;
+            }
         }
     }
     private void OnDrawGizmos()

@@ -26,6 +26,8 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
     public LayerMask groundMask;
     public GameObject player;
 
+    public bool canBeHit = true;
+
     //[SerializeField]
     ////What is the ID of the pooled object that we want as a bullet
     //private string bulletId;
@@ -79,10 +81,15 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            gameObject.GetComponent<Character>().currHealth -= 1;
-            //gameObject.GetComponent<Character>().TakeDamage(1);
-            //sheephealth -= 1;
-            CheckHP();
+            if (canBeHit == true)
+            {
+                canBeHit = false;
+                GetComponent<HitCooldown>().StartHitCooldown();
+                gameObject.GetComponent<Character>().currHealth -= 1;
+                //gameObject.GetComponent<Character>().TakeDamage(1);
+                //sheephealth -= 1;
+                CheckHP();
+            }
         }
     }
 
