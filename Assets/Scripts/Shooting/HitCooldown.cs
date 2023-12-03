@@ -27,6 +27,10 @@ public class HitCooldown : MonoBehaviour
             {
                 isTimerRunning = false;
                 countdown = hitCooldown;
+                if(GetComponent<SheepBT>()  != null)
+                {
+                    GetComponent<SheepBT>().canBeHit = true;
+                }
                 //Teleport();
                 //GetComponent<Character>().Activate();
                 //GetComponent<Character>().ResetHealth();
