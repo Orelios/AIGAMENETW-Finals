@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -3241196245071930405}
   - component: {fileID: 6736758077733729174}
   - component: {fileID: 1158365928875031910}
+  - component: {fileID: 8944984381852971411}
   m_Layer: 10
   m_Name: Sheep
   m_TagString: Sheep
@@ -146,6 +147,7 @@ MonoBehaviour:
   runDistance: 5
   sheep: {fileID: 3460045008867633924}
   isInsideFence: 0
+  canBeHit: 1
 --- !u!195 &6215950730736585694
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -249,3 +251,18 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &8944984381852971411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460045008867633924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d782f31d7435ec45bdf43591e97466e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimerRunning: 0
+  hitCooldown: 1
+  countdown: 1
