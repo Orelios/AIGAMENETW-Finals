@@ -1548,6 +1548,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1410096083}
@@ -2575,6 +2579,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1468339742}
@@ -2655,6 +2663,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -2900,6 +2912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -7599,6 +7615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -12824,6 +12844,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 734620906}
@@ -13094,6 +13118,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -13413,6 +13441,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
+      propertyPath: roamToWaypointDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2261320245521236522, guid: 6232e1f008160ef4f8ecbcf2e8ef4df3, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
