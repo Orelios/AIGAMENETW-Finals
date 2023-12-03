@@ -21,8 +21,8 @@ public class FencedArea : MonoBehaviour
         if (other.gameObject.CompareTag("Sheep"))
         {
             Score.Instance.AddScore(Score.Instance.sheepHerdedScore);
-            ObjectiveCounter.Instance.sheepHerded += 1;
-            ObjectiveCounter.Instance.sheepLeft -= 1;
+            ObjectiveCounter.Instance.AddSheepHerded();
+            ObjectiveCounter.Instance.SubtractSheepLeft();
             other.gameObject.GetComponent<SheepBT>().isInsideFence = true;
         }
     }
@@ -32,8 +32,8 @@ public class FencedArea : MonoBehaviour
         if (other.gameObject.CompareTag("Sheep"))
         {
             Score.Instance.SubtractScore(Score.Instance.sheepLostSubtraction);
-            ObjectiveCounter.Instance.sheepHerded -= 1;
-            ObjectiveCounter.Instance.sheepLeft += 1;
+            ObjectiveCounter.Instance.SubtractSheepHerded();
+            ObjectiveCounter.Instance.AddSheepLeft();
             other.gameObject.GetComponent<SheepBT>().isInsideFence = false;
         }
     }
