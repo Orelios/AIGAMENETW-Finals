@@ -24,7 +24,7 @@ public class WolfSpawner : MonoBehaviourPunCallbacks
     void Update()
     {
         //Don't do anything if you are not the master client
-        if (!PhotonNetwork.IsMasterClient) return;
+            if (!PhotonNetwork.IsMasterClient) return;
 
         if (!isSpawning)
             StartCoroutine(SpawnCoroutine());
@@ -48,8 +48,8 @@ public class WolfSpawner : MonoBehaviourPunCallbacks
         isSpawning = true;
         //Wait for the spawnInterval
         yield return new WaitForSeconds(maxSpawnTimer);
-        SpawnWolf();
-        //SpawnOverNetwork();
+        //SpawnWolf();
+        SpawnOverNetwork();
         isSpawning = false;
     }
 
