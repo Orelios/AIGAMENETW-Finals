@@ -6793,6 +6793,10 @@ PrefabInstance:
       propertyPath: resultScreen
       value: 
       objectReference: {fileID: 5130035676392191669}
+    - target: {fileID: 2821173098602986413, guid: 38cff39cf7c974940b0993ff64f19b74, type: 3}
+      propertyPath: players.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6868602340634259153, guid: 38cff39cf7c974940b0993ff64f19b74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 276.18628
