@@ -48,8 +48,8 @@ public class WolfSpawner : MonoBehaviourPunCallbacks
         isSpawning = true;
         //Wait for the spawnInterval
         yield return new WaitForSeconds(maxSpawnTimer);
-        //SpawnEnemy();
-        SpawnOverNetwork();
+        SpawnWolf();
+        //SpawnOverNetwork();
         isSpawning = false;
     }
 
