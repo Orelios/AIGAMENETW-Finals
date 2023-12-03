@@ -81,6 +81,16 @@ public class SheepBT : BehaviorTree.BehaviorTree
         }
         photonView.RPC("RPCSheepDie", RpcTarget.AllViaServer);
         Debug.Log("Sheep Death");
+        if (GetComponent<SheepBT>().isInsideFence == true) //sheep dies while inside fence
+        {
+            Score.Instance.SubtractScore(Score.Instance.sheepLostSubtraction);
+            ObjectiveCounter.Instance.SubtractSheepHerded();
+            GetComponent<SheepBT>().isInsideFence = false;
+        }
+        else if (GetComponent<SheepBT>().isInsideFence == false) //sheep dies while outside fence
+        {
+            ObjectiveCounter.Instance.SubtractSheepLeft();
+        }
     }
 
     [PunRPC]
