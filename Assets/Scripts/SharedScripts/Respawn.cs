@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    public GameObject respawnPoint;
+    public float spawnX, spawnY, spawnZ;
     public bool isTimerRunning = false;
     public float respawnDelay = 5.0f;
     public float countdown = 5.0f;
@@ -39,7 +39,7 @@ public class Respawn : MonoBehaviour
     public void Teleport()
     {
         GetComponent<CharacterController>().enabled = false;
-        GetComponent<CharacterController>().transform.position = respawnPoint.transform.position;
+        GetComponent<CharacterController>().transform.position = new Vector3(spawnX, spawnY, spawnZ);
         GetComponent<CharacterController>().enabled = true;
     }
 
