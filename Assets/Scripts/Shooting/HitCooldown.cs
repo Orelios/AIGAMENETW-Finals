@@ -31,6 +31,10 @@ public class HitCooldown : MonoBehaviour
                 {
                     GetComponent<SheepBT>().canBeHit = true;
                 }
+                if(GetComponent<CharacterControllerMovement>() != null )
+                {
+                    GetComponent<CharacterControllerMovement>().canBeHit = true;
+                }
                 //Teleport();
                 //GetComponent<Character>().Activate();
                 //GetComponent<Character>().ResetHealth();
