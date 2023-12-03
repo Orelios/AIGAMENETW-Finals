@@ -40,7 +40,7 @@ public class ResultScreenManager : MonoBehaviour
     {
         if (isGameRunning == true)
         {
-            if ((GameTimer.Instance.minutes <= 0 && GameTimer.Instance.seconds <= 0) || ObjectiveCounter.Instance.sheepLeft == 0)
+            if ((GameTimer.Instance.minutes <= 0 && GameTimer.Instance.seconds <= 0) || ObjectiveCounter.Instance.sheepLeft <= 0)
             {
                 StopGame();
                 isGameRunning = false;
