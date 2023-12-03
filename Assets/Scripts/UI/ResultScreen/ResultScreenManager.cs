@@ -14,7 +14,7 @@ public class ResultScreenManager : MonoBehaviour
     public int resultSheepHerded;
     public int resultPlayerDeaths;
     public int resultFinalScore;
-    private bool isGameRunning = true;
+    public bool isGameRunning = true;
     void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
