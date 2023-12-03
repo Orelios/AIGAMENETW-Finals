@@ -105,7 +105,7 @@ public class CharacterControllerMovement : MonoBehaviourPunCallbacks
         //Score.Instance.score -= Score.Instance.playerDeathSubtraction;
         ObjectiveCounter.Instance.AddPlayerDeathTotal();
         //ObjectiveCounter.Instance.playerDeathTotal += 1;
-        //GetComponent<Respawn>().StartRespawn();
+        GetComponent<Respawn>().StartRespawn();
         PlayDeathSound();
         PhotonNetwork.Destroy(this.gameObject);
     }
