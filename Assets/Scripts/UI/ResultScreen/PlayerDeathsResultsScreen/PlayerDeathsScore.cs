@@ -11,12 +11,12 @@ public class PlayerDeathsScore : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "" + (-1 * ObjectiveCounter.Instance.playerDeathTotal * Score.Instance.playerDeathSubtraction).ToString("0000");
+        text.text = "" + (-1 * ResultScreenManager.Instance.resultPlayerDeaths * Score.Instance.playerDeathSubtraction).ToString("0000");
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "" + (-1 * ObjectiveCounter.Instance.playerDeathTotal * Score.Instance.playerDeathSubtraction).ToString("0000");
+        text.text = "" + (-1 * ResultScreenManager.Instance.resultPlayerDeaths * Score.Instance.playerDeathSubtraction).ToString("0000");
     }
 }

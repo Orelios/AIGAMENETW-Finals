@@ -4,23 +4,47 @@ using UnityEngine;
 
 public class ResultScreenManager : MonoBehaviour
 {
+    public static ResultScreenManager Instance { get; private set; }
+
     public GameObject resultScreen;
     public List<GameObject> players;
     public int oneStarMinScore = 10;
     public int twoStarMinScore = 20;
     public int threeStarMinScore = 30;
-    // Start is called before the first frame update
-    void Start()
+    public int resultSheepHerded;
+    public int resultPlayerDeaths;
+    public int resultFinalScore;
+    private bool isGameRunning = true;
+    void Awake()
     {
-        
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        isGameRunning = true;
+    }
+
+    private void OnEnable()
+    {
+        isGameRunning = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((GameTimer.Instance.minutes <= 0 && GameTimer.Instance.seconds <= 0) || ObjectiveCounter.Instance.sheepLeft == 0)
+        if (isGameRunning == true)
         {
-            StopGame();
+            if ((GameTimer.Instance.minutes <= 0 && GameTimer.Instance.seconds <= 0) || ObjectiveCounter.Instance.sheepLeft == 0)
+            {
+                StopGame();
+                isGameRunning = false;
+            }
         }
     }
 
@@ -39,6 +63,15 @@ public class ResultScreenManager : MonoBehaviour
         StopAllPlayerMovement();
         resultScreen.SetActive(true);
         DetermineStamp();
+        SaveFinalCounts();
+    }
+
+    public void SaveFinalCounts()
+    {
+        resultFinalScore = Score.Instance.score;
+        resultSheepHerded = ObjectiveCounter.Instance.sheepHerded;
+        resultPlayerDeaths = ObjectiveCounter.Instance.playerDeathTotal;
+
     }
 
     public void DetermineStamp()

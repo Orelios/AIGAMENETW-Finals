@@ -17,13 +17,13 @@ public class DeathState : Node
         {
             if(_sheep.gameObject.GetComponent<SheepBT>().isInsideFence == true) //sheep dies while inside fence
             {
-                Score.Instance.score -= Score.Instance.sheepLostSubtraction;
-                ObjectiveCounter.Instance.sheepHerded -= 1;
+                Score.Instance.SubtractScore(Score.Instance.sheepLostSubtraction);
+                ObjectiveCounter.Instance.SubtractSheepHerded();
                 _sheep.gameObject.GetComponent<SheepBT>().isInsideFence = false;
             }
             else if(_sheep.gameObject.GetComponent<SheepBT>().isInsideFence == false) //sheep dies while outside fence
             {
-                ObjectiveCounter.Instance.sheepLeft -= 1;
+                ObjectiveCounter.Instance.SubtractSheepLeft();
             }
             _sheep.GetComponent<SheepBT>().SheepDie();
             state = NodeState.Success;
