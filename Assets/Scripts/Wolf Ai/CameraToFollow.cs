@@ -6,6 +6,6 @@ public class CameraToFollow : MonoBehaviour
 {
     void Update()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 0); 
+        transform.rotation = Quaternion.Euler(80, 0, 0);
     }
 }
