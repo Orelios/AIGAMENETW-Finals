@@ -11,12 +11,12 @@ public class FinalScore : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "" + Score.Instance.score.ToString("0000");
+        text.text = "" + ResultScreenManager.Instance.resultFinalScore.ToString("0000");
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "" + Score.Instance.score.ToString("0000");
+        text.text = "" + ResultScreenManager.Instance.resultFinalScore.ToString("0000");
     }
 }

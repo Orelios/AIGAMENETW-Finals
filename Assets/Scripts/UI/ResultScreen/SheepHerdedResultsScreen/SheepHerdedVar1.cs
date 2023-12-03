@@ -11,12 +11,12 @@ public class SheepHerdedVar1 : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        text.text = "" + ObjectiveCounter.Instance.sheepHerded.ToString("00");
+        text.text = "" + ResultScreenManager.Instance.resultSheepHerded.ToString("00");
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "" + ObjectiveCounter.Instance.sheepHerded.ToString("00");
+        text.text = "" + ResultScreenManager.Instance.resultSheepHerded.ToString("00");
     }
 }

@@ -63,6 +63,7 @@ public class ResultScreenManager : MonoBehaviour
         StopAllPlayerMovement();
         resultScreen.SetActive(true);
         DetermineStamp();
+        SaveFinalCounts();
     }
 
     public void SaveFinalCounts()
