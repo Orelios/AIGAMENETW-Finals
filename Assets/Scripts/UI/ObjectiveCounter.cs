@@ -49,4 +49,34 @@ public class ObjectiveCounter : MonoBehaviour
         sheepLeft = initialSheepLeft;
         playerDeathTotal = initialPlayerDeathTotal;
     }
+
+    public void AddSheepHerded()
+    {
+        sheepHerded += 1;
+    }
+
+    public void SubtractSheepHerded()
+    {
+        sheepHerded -= 1;
+    }
+
+    public void AddSheepLeft()
+    {
+        sheepLeft += 1;
+    }
+
+    public void SubtractSheepLeft()
+    {
+        sheepLeft -= 1;
+    }
+
+    public void AddPlayerDeathTotal()
+    {
+        playerDeathTotal += 1;
+    }
+
+    public void SubtractPlayerDeathTotal()
+    {
+        playerDeathTotal -= 1;
+    }
 }
